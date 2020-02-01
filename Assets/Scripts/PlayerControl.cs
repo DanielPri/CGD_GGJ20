@@ -6,14 +6,21 @@ public class PlayerControl : MonoBehaviour
 {
     public float Speed;
     public bool IsClimbing=false;
-    private Rigidbody2D RB;
+    public PLAYER player = PLAYER.PLAYER1;
 
-    
+    private Rigidbody2D RB;
+    private string horizontalAxis = "HorizontalP1";
+    private string verticalAxis = "VerticalP1";
+
     // Start is called before the first frame update
     void Start()
     {
         RB = GetComponent<Rigidbody2D>();
-        
+        if(player == PLAYER.PLAYER2)
+        {
+            horizontalAxis = "HorizontalP2";
+            verticalAxis = "VerticalP2";
+        }
     }
 
     // Update is called once per frame
@@ -25,11 +32,11 @@ public class PlayerControl : MonoBehaviour
     public void MoveCharacter()
     {
 
-        float UserInputHorizontal=Input.GetAxisRaw("Horizontal");
+        float UserInputHorizontal=Input.GetAxisRaw(horizontalAxis);
         float UserInputVertical;
         if (IsClimbing)
         {
-            UserInputVertical = Input.GetAxisRaw("Vertical");
+            UserInputVertical = Input.GetAxisRaw(verticalAxis);
         }
         else
         {
