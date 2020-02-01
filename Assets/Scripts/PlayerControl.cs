@@ -51,6 +51,7 @@ public class PlayerControl : MonoBehaviour
         {
             IsClimbing = true;
             RB.gravityScale = 0;
+            RB.velocity = Vector2.zero;
         }
     }
     public void OnTriggerExit2D(Collider2D col)
