@@ -25,6 +25,7 @@ public class OxygenRoom : RoomComponent
         }
         if(damageState == DAMAGE_STATE.FUNCTIONAL && oxygenRemaining < 1)
         {
+            oxygenRemaining += oxygenLeakSpeed * Time.deltaTime;
             if (oxygenRemaining > 1) { oxygenRemaining = 1; }
         }
     }
