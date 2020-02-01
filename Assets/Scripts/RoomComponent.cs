@@ -50,15 +50,34 @@ public class RoomComponent : MonoBehaviour
         {
             doAction();
         }
+        if (Input.GetButtonUp("Player1Action") && occupyingPlayer == PLAYER.PLAYER1)
+        {
+            endAction();
+        }
+        if (Input.GetButtonUp("Player2Action") && occupyingPlayer == PLAYER.PLAYER2)
+        {
+            endAction();
+        }
 
     }
+    
+    /// <summary>
+    /// What happens to the action when the player releases the button
+    /// </summary>
+    virtual protected void endAction()
+    {
+        // implement pls
+    }
 
+    /// <summary>
+    ///  The action to be performed while a player is holding the action button in the zone
+    /// </summary>
     virtual protected void doAction()
     {
         // implement this in the extending class
     }
 
-    void repair()
+    protected void repair()
     {
         if (canRepair)
         {
