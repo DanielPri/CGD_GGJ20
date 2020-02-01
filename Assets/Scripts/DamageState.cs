@@ -1,4 +1,4 @@
-﻿enum Direction {
+﻿enum DAMAGE_STATE{
    FUNCTIONAL,
    DAMAGED,
    DESTROYED
