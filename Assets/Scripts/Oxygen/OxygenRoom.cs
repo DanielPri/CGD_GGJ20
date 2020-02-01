@@ -3,9 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class OxygenRoom : MonoBehaviour
+public class OxygenRoom : RoomComponent
 {
-    public DAMAGE_STATE damageState = DAMAGE_STATE.FUNCTIONAL;
     public float repairSpeed = 2f;
     [Range(0.0f, 1.0f)]
     public float oxygenRemaining = 1f;
