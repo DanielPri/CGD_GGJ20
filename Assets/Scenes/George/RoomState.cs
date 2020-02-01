@@ -2,25 +2,25 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RoomHealth : MonoBehaviour
+public class RoomState : MonoBehaviour
 {
-    public int health;
+    public int state;
 
     void Start() {
-        health = 2;
+        state = 3;
     }
 
     void Update() {
        // t += Time.deltaTime/duration;
        // this.GetComponent<SpriteRenderer>().material.color = Color.Lerp(startColor, endColor, t);
-        if (health < 0) {
-            health = 0;
+        if (state < 1) {
+            state = 1;
         }
     }
 
     void OnMouseOver() {
         if (Input.GetMouseButtonDown(0)) {
-            health -= 1;
+            state -= 1;
         }
     }
 }
