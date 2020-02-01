@@ -5,7 +5,7 @@ using UnityEngine;
 public class HealthBar : MonoBehaviour
 {
 
-    public GameObject[] rooms = new GameObject[5];
+    public RoomComponent[] rooms = new RoomComponent[5];
     public int maxHealth;
     public int currentHealth;
 
@@ -30,8 +30,11 @@ public class HealthBar : MonoBehaviour
 
     private void calculateHealth() {
         int temp = 0;
-        foreach (GameObject room in rooms) {
-            temp += room.GetComponent<RoomState>().state;
+        foreach (RoomComponent room in rooms) {
+            if (room.damageState == DAMAGE_STATE.FUNCTIONAL)
+                temp += 2;
+            else if (room.damageState == DAMAGE_STATE.DAMAGED)
+                temp += 1;
         }
         currentHealth = temp;
         this.transform.localScale = new Vector2(currentHealth/15.0f, 1.0f);

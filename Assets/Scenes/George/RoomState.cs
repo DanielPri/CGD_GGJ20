@@ -13,8 +13,8 @@ public class RoomState : MonoBehaviour
     void Update() {
        // t += Time.deltaTime/duration;
        // this.GetComponent<SpriteRenderer>().material.color = Color.Lerp(startColor, endColor, t);
-        if (state < 1) {
-            state = 1;
+        if (state < 0) {
+            state = 0;
         }
     }
 
