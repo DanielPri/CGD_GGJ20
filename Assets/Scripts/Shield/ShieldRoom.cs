@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ShieldRoom : RoomComponent
 {
@@ -37,30 +38,24 @@ public class ShieldRoom : RoomComponent
         // Count one second
         if(currentTime - _LastTime >= 1)
         {
-            _CurrentElapsed += currentTime - _LastTime;
-            if (_CurrentElapsed <= 0)
+            _CurrentElapsed += 1;
+            _LastTime = currentTime;
+
+            // Deactivates shield if the correct amount of seconds elapsed
+            if (_ShieldActive && _CurrentElapsed >= _ShieldActiveTime)
             {
-                _CurrentElapsed = 0;
+                _ShieldActive = false;
+                _CooldownActive = true;
             }
 
-            _LastTime = currentTime;
+            // Deactivates cooldown if the correct amount of seconds elapsed based on the DAMAGE_STATE
+            if (_CooldownActive)
+            {
+                if ((damageState == DAMAGE_STATE.FUNCTIONAL && _CurrentElapsed >= (_CooldownTime + _ShieldActiveTime)) ||
+                        (damageState == DAMAGE_STATE.DAMAGED && _CurrentElapsed >= (_DamagedCooldownTime + _ShieldActiveTime)))
+                    _CooldownActive = false;
+            }
         }
-
-        // Deactivates shield if the correct amount of seconds elapsed
-        if(IsShieldActive() && _CurrentElapsed >= _ShieldActiveTime)
-        {
-            _ShieldActive = false;
-            _CooldownActive = true;
-        }
-
-        // Deactivates cooldown if the correct amount of seconds elapsed based on the DAMAGE_STATE
-        if(IsOnCooldown())
-        {
-            if ((damageState == DAMAGE_STATE.FUNCTIONAL && _CurrentElapsed >= _CooldownTime) ||
-                    damageState == DAMAGE_STATE.DAMAGED && _CurrentElapsed >= _DamagedCooldownTime)
-                _CooldownActive = false;
-        }
-
     }
 
     // Overrides parent doAction method -> Activates the shield and cooldown
