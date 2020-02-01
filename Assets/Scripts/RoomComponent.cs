@@ -10,7 +10,8 @@ public class RoomComponent : MonoBehaviour
 
     protected RepairZone repairZone;
     protected bool canRepair = false;
-    protected float repairProgress = 0f;
+    [Range(0.0f, 1.0f)]
+    public float repairProgress = 0f;
     protected PLAYER occupyingPlayer = PLAYER.NONE;
 
     void Start()
@@ -18,7 +19,7 @@ public class RoomComponent : MonoBehaviour
         repairZone = GetComponentInChildren<RepairZone>();
     }
 
-    void Update()
+    protected void Update()
     {
         setRepairStatus();
         checkOccupyingPlayer();
@@ -37,6 +38,7 @@ public class RoomComponent : MonoBehaviour
         if (Input.GetButton("Player1Repair") && occupyingPlayer == PLAYER.PLAYER1)
         {
             repair();
+            Debug.Log("Repairing!");
         }
         if (Input.GetButton("Player2Repair") && occupyingPlayer == PLAYER.PLAYER2)
         {
