@@ -8,8 +8,13 @@ public class PlayerControl : MonoBehaviour
     public bool isRunning = false;
     public bool isClimbing = false;
     public bool isRepairing = false;
-    private Rigidbody2D RB;
     Animator animator;
+    
+    public PLAYER player = PLAYER.PLAYER1;
+
+    private Rigidbody2D RB;
+    private string horizontalAxis = "HorizontalP1";
+    private string verticalAxis = "VerticalP1";
     
     // Start is called before the first frame update
     void Start()
@@ -17,6 +22,11 @@ public class PlayerControl : MonoBehaviour
         Speed = 1;
         RB = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
+        if(player == PLAYER.PLAYER2)
+        {
+            horizontalAxis = "HorizontalP2";
+            verticalAxis = "VerticalP2";
+        }
     }
 
     // Update is called once per frame
@@ -28,8 +38,8 @@ public class PlayerControl : MonoBehaviour
 
     public void MoveCharacter()
     {
-        float UserInputHorizontal = Input.GetAxisRaw("Horizontal");
-
+        float UserInputHorizontal = Input.GetAxisRaw(horizontalAxis);
+        
         if (UserInputHorizontal != 0)
         {
             isRunning = true;
@@ -38,11 +48,12 @@ public class PlayerControl : MonoBehaviour
         {
             isRunning = false;
         }
-
+        
         float UserInputVertical;
+        
         if (isClimbing)
         {
-            UserInputVertical = Input.GetAxisRaw("Vertical");
+            UserInputVertical = Input.GetAxisRaw(verticalAxis);
         }
         else
         {

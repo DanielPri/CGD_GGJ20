@@ -15,7 +15,7 @@ public class RepairZone : MonoBehaviour
 
             if (occupyingPlayer == PLAYER.NONE)
             {
-                //occupyingPlayer = col.gameObject.GetComponent<PlayerScript>().player;
+                occupyingPlayer = col.gameObject.GetComponent<PlayerControl>().player;
             }
         }
 
