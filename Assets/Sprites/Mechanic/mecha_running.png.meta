@@ -1,19 +1,19 @@
 fileFormatVersion: 2
-guid: 3927c52410d5ad943ab047ac4d769069
+guid: 2fef10157b3b20c4d9932a2fe7cb1e66
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 2994184922542060814
-    second: pirate_run_0
+      213: -2156591802362823041
+    second: mecha_running_0
   - first:
-      213: -2312189180001878532
-    second: pirate_run_1
+      213: 7793560386853083303
+    second: mecha_running_1
   - first:
-      213: -6591092688910817512
-    second: pirate_run_2
+      213: 3921452426114123905
+    second: mecha_running_2
   - first:
-      213: 5381674696879780109
-    second: pirate_run_3
+      213: 4356323698154158579
+    second: mecha_running_3
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -98,85 +98,85 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: pirate_run_0
+      name: mecha_running_0
       rect:
         serializedVersion: 2
-        x: 191
-        y: 209
-        width: 520
-        height: 687
+        x: 152
+        y: 876
+        width: 503
+        height: 686
       alignment: 9
-      pivot: {x: 0.5, y: 0.55}
+      pivot: {x: 0.6653238, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e0533fbb25b7d8920800000000000000
-      internalID: 2994184922542060814
+      spriteID: f7ef4ae8e2f3212e0800000000000000
+      internalID: -2156591802362823041
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: pirate_run_1
+      name: mecha_running_1
       rect:
         serializedVersion: 2
-        x: 842
-        y: 236
-        width: 498
-        height: 640
+        x: 692
+        y: 921
+        width: 628
+        height: 645
       alignment: 9
-      pivot: {x: 0.5, y: 0.55}
+      pivot: {x: 0.72588784, y: 0.475}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cfd7c78f03479efd0800000000000000
-      internalID: -2312189180001878532
+      spriteID: 7a81fe931e9482c60800000000000000
+      internalID: 7793560386853083303
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: pirate_run_2
+      name: mecha_running_2
       rect:
         serializedVersion: 2
-        x: 1484
-        y: 205
-        width: 510
-        height: 690
+        x: 95
+        y: 145
+        width: 611
+        height: 691
       alignment: 9
-      pivot: {x: 0.5, y: 0.55}
+      pivot: {x: 0.70515615, y: 0.52}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 817ebcbde1cb784a0800000000000000
-      internalID: -6591092688910817512
+      spriteID: 188402e643ccb6630800000000000000
+      internalID: 3921452426114123905
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: pirate_run_3
+      name: mecha_running_3
       rect:
         serializedVersion: 2
-        x: 2117
-        y: 239
-        width: 511
-        height: 660
+        x: 871
+        y: 165
+        width: 530
+        height: 663
       alignment: 9
-      pivot: {x: 0.5, y: 0.55}
+      pivot: {x: 0.6533528, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d013a3c9f9c8faa40800000000000000
-      internalID: 5381674696879780109
+      spriteID: 3f9381b9255c47c30800000000000000
+      internalID: 4356323698154158579
       vertices: []
       indices: 
       edges: []

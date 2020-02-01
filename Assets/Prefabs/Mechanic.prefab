@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 4116204780021399360}
   - component: {fileID: 4116204780021399372}
   - component: {fileID: 4116204780021399373}
+  - component: {fileID: 1176404231}
   m_Layer: 0
   m_Name: Mechanic
   m_TagString: Untagged
@@ -151,3 +152,19 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &1176404231
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4116204780021399361}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e1e172674ae6a824b8e1a9c501c730b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Speed: 0
+  isRunning: 0
+  isClimbing: 0
+  isRepairing: 0
