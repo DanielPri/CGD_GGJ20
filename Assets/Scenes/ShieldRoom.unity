@@ -132,7 +132,7 @@ GameObject:
   - component: {fileID: 446313683}
   m_Layer: 0
   m_Name: ShieldControl
-  m_TagString: Untagged
+  m_TagString: RepairArea
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -194,7 +194,7 @@ GameObject:
   - component: {fileID: 1023802223}
   m_Layer: 0
   m_Name: RoomEntrance
-  m_TagString: Untagged
+  m_TagString: RoomEntrance
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
