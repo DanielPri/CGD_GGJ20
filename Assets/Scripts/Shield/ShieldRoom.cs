@@ -13,9 +13,12 @@ public class ShieldRoom : RoomComponent
     private bool _ShieldActive = false;
     private bool _CooldownActive = false;
 
-    void Update()
+    new void Update()
     {
-        if(_ShieldActive || _CooldownActive)
+        // Update from RoomComponent
+        base.Update();
+
+        if (_ShieldActive || _CooldownActive)
         {
             HandleTimeElapsed();
         }
