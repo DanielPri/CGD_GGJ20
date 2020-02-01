@@ -7,7 +7,8 @@ public class OxygenRoom : RoomComponent
 {
     [Range(0.0f, 1.0f)]
     public float oxygenRemaining = 1f;
-    public float oxygenLeakSpeed = 2f;
+    public float oxygenLeakSpeed = 0.05f;
+    public float oxygenReplenishSpeed = 0.5f;
 
     // Update is called once per frame
     void Update()
@@ -24,7 +25,7 @@ public class OxygenRoom : RoomComponent
         }
         if(damageState == DAMAGE_STATE.FUNCTIONAL && oxygenRemaining < 1)
         {
-            oxygenRemaining += oxygenLeakSpeed * Time.deltaTime;
+            oxygenRemaining += oxygenReplenishSpeed * Time.deltaTime;
             if (oxygenRemaining > 1) { oxygenRemaining = 1; }
         }
     }
