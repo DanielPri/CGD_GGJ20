@@ -1,0 +1,5 @@
+﻿public enum DAMAGE_STATE{
+   FUNCTIONAL,
+   DAMAGED,
+   DESTROYED
+};
