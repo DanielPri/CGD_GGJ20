@@ -32,7 +32,7 @@ public class OxygenRoom : MonoBehaviour
 
     private void handleOxygenReserves()
     {
-        if(damageState == DAMAGE_STATE.DESTROYED && oxygenRemaining < 0)
+        if(damageState == DAMAGE_STATE.DESTROYED && oxygenRemaining > 0)
         {
             oxygenRemaining -= oxygenLeakSpeed * Time.deltaTime;
             if(oxygenRemaining < 0) { oxygenRemaining = 0; }
