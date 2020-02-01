@@ -399,7 +399,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Dandaman\nKuroiRaku\nLeo\nNatasha\nRose\nPeruman\nAdamanton\nLeticia\n\nRoyoDraws\nPixel
+  m_Text: "Dandaman\nKuroiRaku\nLeo\nPat\nRose\nPeruman\nAdamanton\nLeticia\n\nRoyoDraws\nPixel
     \n\nKuroiRaku"
 --- !u!222 &769232438
 CanvasRenderer:
