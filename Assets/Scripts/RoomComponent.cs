@@ -8,7 +8,6 @@ public class RoomComponent : MonoBehaviour
     public DAMAGE_STATE damageState = DAMAGE_STATE.FUNCTIONAL;
     public float repairSpeed = 2f;
 
-
     protected RepairZone repairZone;
     protected bool canRepair = false;
     protected float repairProgress = 0f;
@@ -24,6 +23,7 @@ public class RoomComponent : MonoBehaviour
         setRepairStatus();
         checkOccupyingPlayer();
         handleInput();
+        // handle room stuff like light turning on;
     }
 
     private void checkOccupyingPlayer()
