@@ -399,29 +399,8 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Dandaman
-
-    KuroiRaku
-
-    Leo
-
-    Natasha
-
-    Rose
-
-    Peruman
-
-    Adamanton
-
-    Leticia
-
-
-    RoyoDraws
-
-    Pat
-
-
-    KuroiRaku'
+  m_Text: "Dandaman\nKuroiRaku\nLeo\nNatasha\nRose\nPeruman\nAdamanton\nLeticia\n\nRoyoDraws\nPixel
+    \n\nKuroiRaku"
 --- !u!222 &769232438
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -559,7 +538,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 9bb5a1351169afd4b93dfceda9f270ae, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.449
   m_Pitch: 1
   Loop: 0
   Mute: 0
