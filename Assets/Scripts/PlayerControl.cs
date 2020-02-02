@@ -88,7 +88,10 @@ public class PlayerControl : MonoBehaviour
         float newposX = Time.deltaTime * Speed * UserInputHorizontal + transform.position.x;
         float newposY = Time.deltaTime * Speed * UserInputVertical + transform.position.y;
 
-        
+        if(UserInputVertical != 0)
+        {
+            UserInputHorizontal = 0;
+        }
 
         if (isClimbing && !isGrounded)
         {
@@ -124,7 +127,6 @@ public class PlayerControl : MonoBehaviour
 
     public void isGroundedRay()
     {
-        raycastLength = 1f;
         RaycastHit2D rh = Physics2D.BoxCast(collider.bounds.center, collider.bounds.size, 0f, Vector2.down, raycastLength, floorLayerMask);
         isGrounded = rh.collider != null;
     }

@@ -136,6 +136,14 @@ PrefabInstance:
       propertyPath: Speed
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 1842750198, guid: 2f210055bcfe71a4ca76bda6131cf747, type: 3}
+      propertyPath: raycastLength
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1842750198, guid: 2f210055bcfe71a4ca76bda6131cf747, type: 3}
+      propertyPath: floorLayerMask.m_Bits
+      value: 512
+      objectReference: {fileID: 0}
     - target: {fileID: 2036196705092148012, guid: 2f210055bcfe71a4ca76bda6131cf747,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -428,6 +436,10 @@ PrefabInstance:
     - target: {fileID: 1176404231, guid: f13928e7a37329d45a2702a314230b79, type: 3}
       propertyPath: floorLayerMask.m_Bits
       value: 512
+      objectReference: {fileID: 0}
+    - target: {fileID: 1176404231, guid: f13928e7a37329d45a2702a314230b79, type: 3}
+      propertyPath: raycastLength
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 4116204780021399361, guid: f13928e7a37329d45a2702a314230b79,
         type: 3}
