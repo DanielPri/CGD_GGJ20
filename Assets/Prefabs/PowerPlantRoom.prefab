@@ -338,13 +338,13 @@ MonoBehaviour:
   repairSpeed: 2
   repairProgress: 0
   destructionFlames: {fileID: 0}
+  destructionSmoke: {fileID: 0}
   abilityCooldown: 0
   abilityDuration: 0
   arrowRotationSpeed: 30
-  arrowRotator: {fileID: 0}
-  circle: {fileID: 0}
-  space: {fileID: 0}
-  pointsUi: {fileID: 0}
+  arrowRotator: {fileID: 7922596153703429085, guid: 8f25032086eea0e4c8583a3b39bcf770,
+    type: 3}
+  circle: {fileID: 6346306015199582858, guid: d8b308b38b8ba874492b6c1433cfd52e, type: 3}
   regenEnergy: 0
   regenCooldown: 0
   burnedRessources: 0
@@ -468,7 +468,7 @@ PrefabInstance:
     - target: {fileID: 5361015312740550861, guid: d09af64ed8f47a143a0d7d0a68d8c219,
         type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5361015312740550861, guid: d09af64ed8f47a143a0d7d0a68d8c219,
         type: 3}

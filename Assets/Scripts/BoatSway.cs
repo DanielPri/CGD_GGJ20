@@ -13,7 +13,7 @@ public class BoatSway : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.Rotate(Vector3.forward, Mathf.Sin(Time.time)/32);
+        transform.Rotate(Vector3.forward, Mathf.Sin(Time.time)/80);
 
 
     }
