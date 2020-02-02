@@ -8,15 +8,15 @@ public class EngineWheel : RoomComponent
 
     new void Update()
     {
-        if(damageState == DAMAGE_STATE.FUNCTIONAL)
+        if(transform.parent.parent.GetComponent<RoomComponent>().damageState == DAMAGE_STATE.FUNCTIONAL)
         {
             rotationSpeed = 360;
         }
-        else if (damageState == DAMAGE_STATE.DAMAGED)
+        else if (transform.parent.parent.GetComponent<RoomComponent>().damageState == DAMAGE_STATE.DAMAGED)
         {
             rotationSpeed = 180;
         }
-        else if (damageState == DAMAGE_STATE.DESTROYED)
+        else if (transform.parent.parent.GetComponent<RoomComponent>().damageState == DAMAGE_STATE.DESTROYED)
         {
             rotationSpeed = 0;
         }

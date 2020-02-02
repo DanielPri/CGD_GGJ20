@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1200659828331715439}
   - component: {fileID: 1200659828331715438}
+  - component: {fileID: 2025680124}
   m_Layer: 0
   m_Name: Sprite
   m_TagString: Untagged
@@ -82,6 +83,25 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &2025680124
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1200659828331715436}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 4faab325c8bf12842b85d6622d678f80, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1200659828438239165
 GameObject:
   m_ObjectHideFlags: 0
@@ -133,6 +153,7 @@ MonoBehaviour:
   repairSpeed: 2
   repairProgress: 0
   destructionFlames: {fileID: 0}
+  destructionSmoke: {fileID: 0}
   abilityCooldown: 0
   abilityDuration: 0
   arrowRotationSpeed: 30
@@ -140,6 +161,7 @@ MonoBehaviour:
   circle: {fileID: 0}
   space: {fileID: 0}
   pointsUi: {fileID: 0}
+  isHealthy: 0
 --- !u!1 &1200659828478460891
 GameObject:
   m_ObjectHideFlags: 0
@@ -291,7 +313,7 @@ PrefabInstance:
     - target: {fileID: 5361015312740550863, guid: d09af64ed8f47a143a0d7d0a68d8c219,
         type: 3}
       propertyPath: m_WasSpriteAssigned
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d09af64ed8f47a143a0d7d0a68d8c219, type: 3}
