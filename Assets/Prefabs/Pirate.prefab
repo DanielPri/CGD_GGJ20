@@ -132,7 +132,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!95 &4257576766266745053
 Animator:
   serializedVersion: 3
@@ -165,11 +165,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Speed: 3
+  isGrounded: 1
   isRunning: 0
   isClimbing: 0
   isRepairing: 0
+  isInteracting: 0
   facingLeft: 0
-  isGrounded: 1
   floorLayerMask:
     serializedVersion: 2
     m_Bits: 512
