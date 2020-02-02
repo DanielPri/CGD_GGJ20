@@ -43,6 +43,7 @@ public class ShieldRoom : RoomComponent
             if (activated && abilityTimer >= abilityDuration)
             {
                 activated = false;
+                isShielded = false;
                 onCooldown = true;
             }
 
@@ -73,6 +74,7 @@ public class ShieldRoom : RoomComponent
     {
         abilityTimer = 0;
         activated = true;
+        isShielded = true;
         _LastTime = Time.time;
     }
 }
