@@ -20,7 +20,7 @@ public class Extractor_Beam : RoomComponent
     {
         if (other.tag == "Resource_Water")
         {
-            Storage.resources_Water += 1;
+            WaterStorageRoom.resources_Water += 1;
         }
         if (other.tag == "Resource_Metal")
         {

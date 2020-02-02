@@ -18,6 +18,10 @@ public class PowerPlantRoom : RoomComponent
         {
             destructionFlames = transform.Find("DestrucitonFlames").gameObject;
         }
+        if (transform.Find("Smoke") != null)
+        {
+            destructionSmoke = transform.Find("Smoke").gameObject;
+        }
         spriteRenderer = transform.Find("PowerCore").Find("DullCore").GetComponent<SpriteRenderer>();
         Debug.Log(spriteRenderer);
         currentEnergy = 1; //this isn't working for some reason?

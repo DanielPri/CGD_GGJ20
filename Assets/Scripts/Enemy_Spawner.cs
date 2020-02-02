@@ -16,15 +16,9 @@ public class Enemy_Spawner : MonoBehaviour
 
     [SerializeField] private GameObject enemyPrefab;
     GameObject newEnemy;
-    Animator anim;
 
     [SerializeField] float spawnDelay;
     float nextTimeToSpawn = 0f;
-
-    private void Start()
-    {
-        anim = newEnemy.GetComponent<Animator>();
-    }
 
     void Update()
     {
