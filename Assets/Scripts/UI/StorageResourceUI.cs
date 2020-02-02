@@ -30,7 +30,7 @@ public class StorageResourceUI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        waterText.text = Storage.resources_Water.ToString();
+        waterText.text = WaterStorageRoom.resources_Water.ToString();
         metalText.text = Storage.resources_Metal.ToString();
         handleVisibility();
     }

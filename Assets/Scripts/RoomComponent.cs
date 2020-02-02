@@ -14,6 +14,7 @@ public class RoomComponent : MonoBehaviour
     public float repairProgress = 0f;
     protected PLAYER occupyingPlayer = PLAYER.NONE;
     public GameObject destructionFlames;
+    public GameObject destructionSmoke;
 
 
     [HideInInspector] public bool activated { get; protected set; } = false; //Whether the ability is activated or not
@@ -22,6 +23,7 @@ public class RoomComponent : MonoBehaviour
     [SerializeField] protected float abilityDuration; //How long the ability stays active
     protected float abilityTimer = 0; //Calculates the duration and the cooldown
     public float energyCost { get; protected set; } //Energy cost of the ability
+    protected SpriteRenderer spriteRenderer;
 
     [Range(1, 50)]
     [SerializeField] private int arrowRotationSpeed = 30;
@@ -37,6 +39,11 @@ public class RoomComponent : MonoBehaviour
         {
             destructionFlames = transform.Find("DestrucitonFlames").gameObject;
         }
+        if (transform.Find("Smoke") != null)
+        {
+            destructionSmoke = transform.Find("Smoke").gameObject;
+        }
+        spriteRenderer = GetComponentInChildren<SpriteRenderer>();
     }
 
     protected void Update()
@@ -50,19 +57,48 @@ public class RoomComponent : MonoBehaviour
         }
         // handle room stuff like light turning on;
         handleFlames();
+        changeColor();
+    }
+
+    private void changeColor()
+    {
+        if(spriteRenderer != null)
+        {
+            if(damageState == DAMAGE_STATE.FUNCTIONAL)
+            {
+                spriteRenderer.color = new Color(1,1,1); //default
+            }
+            if (damageState == DAMAGE_STATE.DAMAGED)
+            {
+                spriteRenderer.color = new Color(1, 0.5882353f, 0.5882353f); //Pinkish
+            }
+            if (damageState == DAMAGE_STATE.DESTROYED)
+            {
+                spriteRenderer.color = new Color(1, 0.1843137f, 0); //Redish
+            }
+        }
     }
 
     private void handleFlames()
     {
         if (destructionFlames != null)
+        {
             if (damageState == DAMAGE_STATE.DESTROYED)
             {
                 destructionFlames.SetActive(true);
+                destructionSmoke.SetActive(true);
+            }
+            else if (damageState == DAMAGE_STATE.DAMAGED)
+            {
+                destructionSmoke.SetActive(true);
+                destructionFlames.SetActive(false);
             }
             else
             {
+                destructionSmoke.SetActive(false);
                 destructionFlames.SetActive(false);
             }
+        }
     }
 
     private void checkOccupyingPlayer()
@@ -227,6 +263,9 @@ public class RoomComponent : MonoBehaviour
 
     public void GetHit()
     {
-        damageState++;
+        if (damageState != DAMAGE_STATE.DESTROYED)
+        {
+            damageState++;
+        }
     }
 }
