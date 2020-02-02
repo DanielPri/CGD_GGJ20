@@ -11,26 +11,9 @@ using UnityEngine;
 
 public class MainMenuHandler : MonoBehaviour
 {
-    [SerializeField] private GameObject _creditsPanel = null;
-    [SerializeField] private GameObject _mainMenuComponents = null;
-
-    public void ShowCredits()
+    public void LoadCreditScene()
     {
-        if (_creditsPanel != null && _mainMenuComponents != null)
-        {
-            _mainMenuComponents.SetActive(false);
-            _creditsPanel.SetActive(true);
-        }
-    }
-
-
-    public void HideCredits()
-    {
-        if (_creditsPanel != null && _mainMenuComponents != null)
-        {
-            _creditsPanel.SetActive(false);
-            _mainMenuComponents.SetActive(true);
-        }
+        SceneManager.LoadScene("CreditScene");
     }
 
     public void LoadGameScene()
