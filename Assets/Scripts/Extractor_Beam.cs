@@ -2,28 +2,44 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Extractor_Beam : MonoBehaviour
+public class Extractor_Beam : RoomComponent
 {
     public static bool extracting;
     public static Vector3 extractor_beam_position;
 
     // Start is called before the first frame update
-    void Start()
+    new void Start()
     {
+        base.Start();
         extractor_beam_position = transform.position;
         extracting = false;
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnTriggerEnter(Collider other)
     {
-        if (Input.GetButtonDown("Extract"))
+        if (other.tag == "Resource_Water")
         {
+            Storage.resources_Water += 1;
+        }
+        if (other.tag == "Resource_Metal")
+        {
+            Storage.resources_Metal += 1;
+        }
+    }
+
+    protected override void doAction()
+    {
+        // Activate extractor beam and all that
+        // TODO: Check energy cost and if there is enough
+        if (!activated && damageState != DAMAGE_STATE.DESTROYED && PowerPlantRoom.currentEnergy > 0.00f)
+        {
+            PowerPlantRoom.currentEnergy -= 0.01f * Time.deltaTime;
             extracting = true;
         }
-        if (Input.GetButtonUp("Extract"))
-        {
-            extracting = false;
-        }
+    }
+
+    protected override void endAction()
+    {
+        extracting = false;
     }
 }

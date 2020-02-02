@@ -5,14 +5,16 @@ using UnityEngine;
 public class PowerPlantRoom : RoomComponent
 {
     [HideInInspector] public float totalEnergy { get; private set; } = 100f;
-    [HideInInspector] public float currentEnergy; //TODO replace with Storage.energy
+    [HideInInspector] public static float currentEnergy = 1; //TODO replace with Storage.energy
     [SerializeField] float regenEnergy; //Amount regenerated overtime
     [SerializeField] float regenCooldown; //Time between each regeneration
     [SerializeField] float burnedRessources; //Amount of energy gained when burning ressources (ability)
 
     // Start is called before the first frame update
-    void Start()
+    new void Start()
     {
+        base.Start();
+        currentEnergy = 1; //this isn't working for some reason?
         InvokeRepeating("regenerateEnergy", regenCooldown, regenCooldown);
     }
 
