@@ -17,7 +17,6 @@ public class PlayerControl : MonoBehaviour
     
     public PLAYER player = PLAYER.PLAYER1;
 
-    private bool snapToLadder = false;
     private Rigidbody2D RB;
     private string horizontalAxis = "HorizontalP1";
     private string verticalAxis = "VerticalP1";
@@ -92,16 +91,6 @@ public class PlayerControl : MonoBehaviour
         {
             UserInputHorizontal = 0;
         }
-
-        if (isClimbing && !isGrounded)
-        {
-            snapToLadder = true;
-            newposX = ladderCenter;
-        }
-        else
-        {
-            snapToLadder = false;
-        }
         transform.position = new Vector3(newposX, newposY, 0);
 
     }
@@ -109,7 +98,7 @@ public class PlayerControl : MonoBehaviour
     private void Animate()
     {
         animator.SetBool("isRunning", isRunning);
-        animator.SetBool("isClimbing", snapToLadder);
+        animator.SetBool("isClimbing", isClimbing && !isGrounded);
         animator.SetBool("isRepairing", isRepairing);
     }
 
