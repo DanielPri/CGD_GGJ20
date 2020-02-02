@@ -19,7 +19,8 @@ public class WaterStorageRoom : RoomComponent
     new void Update()
     {
         base.Update();
-        if(resources_Water > maximum_water * 0.8f)
+        //handleWaterReserves(); should we do this?
+        if (resources_Water > maximum_water * 0.8f)
         {
             animator.SetTrigger("isFull");
         }
@@ -33,7 +34,7 @@ public class WaterStorageRoom : RoomComponent
         }
     }
 
-    private void handleOxygenReserves()
+    private void handleWaterReserves()
     {
         if (damageState == DAMAGE_STATE.DESTROYED && resources_Water > 0)
         {
