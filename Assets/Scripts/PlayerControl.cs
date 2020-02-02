@@ -118,7 +118,7 @@ public class PlayerControl : MonoBehaviour
 
     private void Repair()
     {
-        if (Input.GetButtonDown(repair))
+        if (Input.GetButton(repair))
         {
             isRepairing = true;
         }
