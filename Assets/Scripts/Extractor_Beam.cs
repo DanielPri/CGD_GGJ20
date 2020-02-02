@@ -8,10 +8,12 @@ public class Extractor_Beam : RoomComponent
     public static Vector3 extractor_beam_position;
     public bool isHealthy;
     Animator animator;
+    float time;
 
     // Start is called before the first frame update
     new void Start()
     {
+        time = 0;
         base.Start();
         extractor_beam_position = transform.position;
         extracting = false;
@@ -37,17 +39,18 @@ public class Extractor_Beam : RoomComponent
 
         base.Update();
         animator.SetBool("isHealthy", isHealthy);
-    }
 
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.tag == "Resource_Water")
+        if (extracting)
         {
-            WaterStorageRoom.resources_Water += 1;
-        }
-        if (other.tag == "Resource_Metal")
-        {
-            Storage.resources_Metal += 1;
+            time += Time.deltaTime;
+            if (time > 2f)
+            {
+                if (PowerPlantRoom.currentEnergy >= 2)
+                {
+                    PowerPlantRoom.currentEnergy -= 2;
+                }
+                time = 0;
+            }
         }
     }
 
@@ -57,7 +60,6 @@ public class Extractor_Beam : RoomComponent
         // TODO: Check energy cost and if there is enough
         if (!activated && damageState != DAMAGE_STATE.DESTROYED && PowerPlantRoom.currentEnergy > 0.00f)
         {
-            PowerPlantRoom.currentEnergy -= 0.01f * Time.deltaTime;
             extracting = true;
         }
     }

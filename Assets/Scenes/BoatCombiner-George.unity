@@ -502,7 +502,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Score
+  m_Text: 'Score: 0'
 --- !u!222 &486130601
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2047,7 +2047,7 @@ PrefabInstance:
     - target: {fileID: 6673930900077084674, guid: 8af93e81008dd134fbb405c5535b1aec,
         type: 3}
       propertyPath: spawnDelay
-      value: 6
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8af93e81008dd134fbb405c5535b1aec, type: 3}

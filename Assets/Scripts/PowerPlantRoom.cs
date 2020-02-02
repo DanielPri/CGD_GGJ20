@@ -24,7 +24,7 @@ public class PowerPlantRoom : RoomComponent
         }
         spriteRenderer = transform.Find("PowerCore").Find("DullCore").GetComponent<SpriteRenderer>();
         Debug.Log(spriteRenderer);
-        currentEnergy = 1; //this isn't working for some reason?
+        currentEnergy = 50; //this isn't working for some reason?
         InvokeRepeating("regenerateEnergy", regenCooldown, regenCooldown);
     }
 
