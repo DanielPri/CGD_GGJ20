@@ -21,8 +21,8 @@ public class PowerResourceUI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        powerText.text = PowerPlantRoom.currentEnergy.ToString();
-        handleVisibility();
+        powerText.text = PowerPlantRoom.currentEnergy.ToString("F0");
+        //handleVisibility();
     }
     private void handleVisibility()
     {
