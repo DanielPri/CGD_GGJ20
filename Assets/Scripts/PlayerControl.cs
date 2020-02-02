@@ -56,57 +56,45 @@ public class PlayerControl : MonoBehaviour
 
     public void MoveCharacter()
     {
-        float UserInputHorizontal = Input.GetAxisRaw(horizontalAxis);
-        if (UserInputHorizontal != 0)
-        {
-            isRunning = true;
+        if (!isRepairing) {
+            float UserInputHorizontal = Input.GetAxisRaw(horizontalAxis);
+            if (UserInputHorizontal != 0) {
+                isRunning = true;
 
-            if (UserInputHorizontal < 0)
-            {
-                facingLeft = true;
-                GetComponent<SpriteRenderer>().flipX = true;
-            }
-            else
-            {
-                if (facingLeft)
-                {
-                    facingLeft = false;
-                    GetComponent<SpriteRenderer>().flipX = false;
+                if (UserInputHorizontal < 0) {
+                    facingLeft = true;
+                    GetComponent<SpriteRenderer>().flipX = true;
+                } else {
+                    if (facingLeft) {
+                        facingLeft = false;
+                        GetComponent<SpriteRenderer>().flipX = false;
+                    }
                 }
+            } else {
+                isRunning = false;
             }
-        }
-        else
-        {
-            isRunning = false;
-        }
-        
-        float UserInputVertical;
-        if (isClimbing)
-        {
-            UserInputVertical = Input.GetAxisRaw(verticalAxis);
-            if (UserInputVertical == 0 && !isGrounded)
-            {
-                animator.enabled = false;
-            }
-            else
-            {
+
+            float UserInputVertical;
+            if (isClimbing) {
+                UserInputVertical = Input.GetAxisRaw(verticalAxis);
+                if (UserInputVertical == 0 && !isGrounded) {
+                    animator.enabled = false;
+                } else {
+                    animator.enabled = true;
+                }
+            } else {
+                UserInputVertical = 0;
                 animator.enabled = true;
             }
-        }
-        else
-        {
-            UserInputVertical = 0;
-            animator.enabled = true;
-        }
-        float newposX = Time.deltaTime * Speed * UserInputHorizontal + transform.position.x;
-        float newposY = Time.deltaTime * Speed * UserInputVertical + transform.position.y;
 
-        if(UserInputVertical != 0)
-        {
-            UserInputHorizontal = 0;
-        }
-        transform.position = new Vector3(newposX, newposY, 0);
+            if (UserInputVertical != 0) {
+                UserInputHorizontal = 0;
+            }
 
+            float newposX = Time.deltaTime * Speed * UserInputHorizontal + transform.position.x;
+            float newposY = Time.deltaTime * Speed * UserInputVertical + transform.position.y;
+            transform.position = new Vector3(newposX, newposY, 0);
+        }
     }
 
     private void Animate()

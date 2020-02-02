@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6070940318854970236}
   - component: {fileID: 6070940318854970211}
+  - component: {fileID: 422559332}
   m_Layer: 0
   m_Name: ShieldStation
   m_TagString: Untagged
@@ -82,6 +83,34 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &422559332
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6070940318854970237}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6cb9210c27e5926468eb2ee547f3ca84, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damageState: 0
+  repairSpeed: 4
+  repairProgress: 0
+  destructionFlames: {fileID: 0}
+  destructionSmoke: {fileID: 0}
+  abilityCooldown: 0
+  abilityDuration: 0
+  arrowRotationSpeed: 30
+  arrowRotator: {fileID: 0}
+  circle: {fileID: 0}
+  space: {fileID: 0}
+  pointsUi: {fileID: 0}
+  shieldOn: {fileID: 5566936454658361144, guid: 8d880ec753caf18488d6245793eb878e,
+    type: 3}
+  shieldOff: {fileID: -8129705728437987189, guid: f2ffe30239a264c4bb60491b76817f27,
+    type: 3}
 --- !u!1 &6070940319359360026
 GameObject:
   m_ObjectHideFlags: 0
@@ -133,6 +162,7 @@ MonoBehaviour:
   repairSpeed: 2
   repairProgress: 0
   destructionFlames: {fileID: 0}
+  destructionSmoke: {fileID: 0}
   abilityCooldown: 10
   abilityDuration: 2
   arrowRotationSpeed: 30

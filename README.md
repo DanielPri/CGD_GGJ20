@@ -1,4 +1,4 @@
-# Star Ship Frenzy
+# Space Boat Frenzy
 
 ## Galaxy shader
 Star Nest algorithm by Pablo Román Andrioli
