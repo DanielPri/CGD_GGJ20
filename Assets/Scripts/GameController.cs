@@ -21,7 +21,6 @@ public class GameController : MonoBehaviour
     // Control variables
     private int _Score; // TODO: Check how scoreboard works later
     private float _OxygenRemaining; // Get it from OxygenRoom
-    private bool _Lost = false;
 
     // Maybe this controller sets everything on game/scene start?
 
