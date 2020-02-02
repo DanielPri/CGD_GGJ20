@@ -4,6 +4,14 @@ using UnityEngine;
 
 public class GameController : MonoBehaviour
 {
+    struct BrokenRooms
+    {
+        public bool Oxygem;
+        public bool Shield;
+        public bool Bridge;
+        public bool Engine;
+    }
+
     // Important values
     [SerializeField] private int _TotalDamageToLose = 3;
     [SerializeField] private int _ScoreAdded = 10;
@@ -20,6 +28,7 @@ public class GameController : MonoBehaviour
     private int _DamageCount;
     private int _Score; // TODO: Check how scoreboard works later
     private float _OxygenRemaining; // Get it from OxygenRoom
+    private BrokenRooms _BrokenRooms;
 
     // Maybe this controller sets everything on game/scene start?
 
@@ -29,6 +38,11 @@ public class GameController : MonoBehaviour
         _DamageCount = 0;
         _Score = 0;
         _OxygenRemaining = 1f;
+
+        _BrokenRooms.Oxygem = false;
+        _BrokenRooms.Shield = false;
+        _BrokenRooms.Bridge = false;
+        _BrokenRooms.Engine = false;
     }
 
     // Update other rooms' important information as needed like Engine being functional in the Bridge room
@@ -39,6 +53,9 @@ public class GameController : MonoBehaviour
 
         // Check for points to score
         CheckPiloting();
+        
+        // Update oxygen remaining from the room
+        _OxygenRemaining = _OxygenRoom.oxygenRemaining;
     }
 
     // Check if engine is operational or not (is only working again once its fully repaired)
@@ -48,29 +65,37 @@ public class GameController : MonoBehaviour
         {
             _BridgeRoom.isEngineFunctional = true;
         }
-        else if(_EngineRoom.damageState == DAMAGE_STATE.DESTROYED)
+        else if(_EngineRoom.damageState == DAMAGE_STATE.DESTROYED && !_BrokenRooms.Engine)
         {
+            Debug.Log("Engine Room broke.");
             _BridgeRoom.isEngineFunctional = false;
             _DamageCount++;
+            _BrokenRooms.Engine = true;
         }
     }
 
     // Checks and updates overall damage of each room
     private void CheckDamage()
     {
-        if(_OxygenRoom.damageState == DAMAGE_STATE.DESTROYED)
+        if(_OxygenRoom.damageState == DAMAGE_STATE.DESTROYED && !_BrokenRooms.Oxygem)
         {
+            Debug.Log("Oxygem Room broke.");
             _DamageCount++;
+            _BrokenRooms.Oxygem = true;
         }
 
-        if (_ShieldRoom.damageState == DAMAGE_STATE.DESTROYED)
+        if (_ShieldRoom.damageState == DAMAGE_STATE.DESTROYED && !_BrokenRooms.Shield)
         {
+            Debug.Log("Shield Room broke.");
             _DamageCount++;
+            _BrokenRooms.Shield = true;
         }
 
-        if (_BridgeRoom.damageState == DAMAGE_STATE.DESTROYED)
+        if (_BridgeRoom.damageState == DAMAGE_STATE.DESTROYED && !_BrokenRooms.Bridge)
         {
+            Debug.Log("Bridge Room broke.");
             _DamageCount++;
+            _BrokenRooms.Bridge = true;
         }
 
         // Checks engine damage and updates bridge if necessary
@@ -80,6 +105,8 @@ public class GameController : MonoBehaviour
         {
             // Then lose I guess
             Debug.Log("YOU LOSE! Or rather, you sink (?)");
+            // Save score
+            // Change scene
         }
     }
 
@@ -94,8 +121,4 @@ public class GameController : MonoBehaviour
             // TODO: sinchronize with scoreboard (either here or in the scoreboard script)
         }
     }
-
-    // maybe do a score getter
-
-    // 
 }
