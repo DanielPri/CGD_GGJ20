@@ -79,10 +79,19 @@ public class PlayerControl : MonoBehaviour
         if (isClimbing)
         {
             UserInputVertical = Input.GetAxisRaw(verticalAxis);
+            if (UserInputVertical == 0 && !isGrounded)
+            {
+                animator.enabled = false;
+            }
+            else
+            {
+                animator.enabled = true;
+            }
         }
         else
         {
             UserInputVertical = 0;
+            animator.enabled = true;
         }
         float newposX = Time.deltaTime * Speed * UserInputHorizontal + transform.position.x;
         float newposY = Time.deltaTime * Speed * UserInputVertical + transform.position.y;
