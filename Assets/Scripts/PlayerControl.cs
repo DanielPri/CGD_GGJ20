@@ -27,6 +27,7 @@ public class PlayerControl : MonoBehaviour
     private float ladderCenter = 0f;
     private Collider2D collider;
 
+
     // Start is called before the first frame update
     void Start()
     {
@@ -50,6 +51,7 @@ public class PlayerControl : MonoBehaviour
         Repair();
         Interact();
         isGroundedRay();
+        
     }
 
     public void MoveCharacter()
@@ -164,4 +166,6 @@ public class PlayerControl : MonoBehaviour
             RB.gravityScale = gravityPwr;
         }
     }
+
+    
 }
