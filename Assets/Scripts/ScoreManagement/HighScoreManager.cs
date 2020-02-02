@@ -87,7 +87,6 @@ public class HighScoreManager : MonoBehaviour
     public void SetNamePlayer()
     {
         _namePlayer = string.Copy(_name.text);
-        Debug.Log(_namePlayer);
     }
 
     public int CompareScores(scores s1, scores s2)

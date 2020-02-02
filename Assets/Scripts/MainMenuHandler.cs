@@ -20,7 +20,8 @@ public class MainMenuHandler : MonoBehaviour
     {
         // TODO: Change the name to the correct scene
         // NOT WORKING!
-        SceneManager.LoadScene("SampleScene");
+        //SceneManager.LoadScene("SampleScene");
+        SceneManager.LoadScene("GameOver");
     }
 
     public void LoadInstructionsScene()
