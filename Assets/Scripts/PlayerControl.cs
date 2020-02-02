@@ -5,11 +5,12 @@ using UnityEngine;
 public class PlayerControl : MonoBehaviour
 {
     public float Speed;
+    public bool isGrounded = true;
     public bool isRunning = false;
     public bool isClimbing = false;
     public bool isRepairing = false;
+    public bool isInteracting = false;
     public bool facingLeft = false;
-    public bool isGrounded = true;
     
     public LayerMask floorLayerMask;
     public float raycastLength = 0.5f;
@@ -21,6 +22,7 @@ public class PlayerControl : MonoBehaviour
     private string horizontalAxis = "HorizontalP1";
     private string verticalAxis = "VerticalP1";
     private string repair = "Player1Repair";
+    private string interact = "Player1Action";
     private float ladderCenter = 0f;
     private Collider2D collider;
 
@@ -34,6 +36,7 @@ public class PlayerControl : MonoBehaviour
             horizontalAxis = "HorizontalP2";
             verticalAxis = "VerticalP2";
             repair = "Player2Repair";
+            interact = "Player2Action";
         }
         collider = GetComponent<Collider2D>();
     }
@@ -44,6 +47,7 @@ public class PlayerControl : MonoBehaviour
         MoveCharacter();
         Animate();
         Repair();
+        Interact();
         isGroundedRay();
     }
 
@@ -57,7 +61,6 @@ public class PlayerControl : MonoBehaviour
 
             if (UserInputHorizontal < 0)
             {
-                Debug.Log("AM HERE");
                 facingLeft = true;
                 GetComponent<SpriteRenderer>().flipX = true;
             }
@@ -109,6 +112,7 @@ public class PlayerControl : MonoBehaviour
         animator.SetBool("isRunning", isRunning);
         animator.SetBool("isClimbing", isClimbing && !isGrounded);
         animator.SetBool("isRepairing", isRepairing);
+        animator.SetBool("isInteracting", isInteracting);
     }
 
     private void Repair()
@@ -120,6 +124,18 @@ public class PlayerControl : MonoBehaviour
         else
         {
             isRepairing = false;
+        }
+    }
+
+    private void Interact()
+    {
+        if(Input.GetButton(interact))
+        {
+            isInteracting = true;
+        }
+        else
+        {
+            isInteracting = false;
         }
     }
 
