@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class Resource_Spawner : MonoBehaviour
 {
-
-    [SerializeField] private int radius;
     [SerializeField] private GameObject Metal;
     [SerializeField] private GameObject Water;
 
