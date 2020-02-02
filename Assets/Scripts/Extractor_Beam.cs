@@ -43,11 +43,11 @@ public class Extractor_Beam : RoomComponent
         if (extracting)
         {
             time += Time.deltaTime;
-            if (time > 2f)
+            if (time > 1f)
             {
-                if (PowerPlantRoom.currentEnergy >= 2)
+                if (PowerPlantRoom.currentEnergy >= 5)
                 {
-                    PowerPlantRoom.currentEnergy -= 2;
+                    PowerPlantRoom.currentEnergy -= 5;
                 }
                 time = 0;
             }
