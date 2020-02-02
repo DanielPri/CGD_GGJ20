@@ -1,19 +1,30 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PowerPlantRoom : MonoBehaviour
+public class PowerPlantRoom : RoomComponent
 {
     [HideInInspector] public float totalEnergy { get; private set; } = 100f;
-    [HideInInspector] public float currentEnergy;
+    [HideInInspector] public static float currentEnergy = 1; //TODO replace with Storage.energy
     [SerializeField] float regenEnergy; //Amount regenerated overtime
     [SerializeField] float regenCooldown; //Time between each regeneration
     [SerializeField] float burnedRessources; //Amount of energy gained when burning ressources (ability)
 
     // Start is called before the first frame update
-    void Start()
+    new void Start()
     {
-        currentEnergy = totalEnergy;
+        repairZone = GetComponentInChildren<RepairZone>();
+        if (transform.Find("DestrucitonFlames") != null)
+        {
+            destructionFlames = transform.Find("DestrucitonFlames").gameObject;
+        }
+        if (transform.Find("Smoke") != null)
+        {
+            destructionSmoke = transform.Find("Smoke").gameObject;
+        }
+        spriteRenderer = transform.Find("PowerCore").Find("DullCore").GetComponent<SpriteRenderer>();
+        Debug.Log(spriteRenderer);
+        currentEnergy = 1; //this isn't working for some reason?
         InvokeRepeating("regenerateEnergy", regenCooldown, regenCooldown);
     }
 
@@ -26,5 +37,16 @@ public class PowerPlantRoom : MonoBehaviour
 
     public void burnRessources() {
         currentEnergy += burnedRessources;
+    }
+    
+    protected override void doAction() {
+        if(/*Storage.metal < burnedRessources &&*/ currentEnergy < totalEnergy) {
+            //Storage.metal -= burnedRessources;
+            currentEnergy += burnedRessources;
+            if (currentEnergy > totalEnergy) currentEnergy = totalEnergy;
+        }
+    }
+
+    protected override void endAction() {
     }
 }

@@ -2,23 +2,18 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EngineRoom : MonoBehaviour {
-    [SerializeField] public DAMAGE_STATE damageState { get; private set; } = DAMAGE_STATE.FUNCTIONAL;
+public class EngineRoom : RoomComponent {
     [SerializeField] float maxSpeed; //Speeds and the different multipliers when hurt
     [SerializeField] float damagedMultiplier; 
     [SerializeField] float destroyedMultiplier;
     float currentSpeed;
 
-    float abilityTimer = 0; //Calculates the duration and the cooldown
-    public float energyCost { get; private set; }
-    [HideInInspector] public bool activated { get; private set; } = false;
-    [HideInInspector] public bool onCooldown { get; private set; } = false;
     [SerializeField] float abilityMultiplier; //Speed boost multiplier
-    [SerializeField] float abilityCooldown;
-    [SerializeField] float abilityDuration;
 
     // Update is called once per frame
-    void Update() {
+    new void Update() {
+        base.Update();
+
         if (abilityTimer < abilityCooldown) abilityTimer += Time.deltaTime;
 
         if (damageState == DAMAGE_STATE.FUNCTIONAL) {
@@ -32,7 +27,7 @@ public class EngineRoom : MonoBehaviour {
         if (activated) {
             currentSpeed *= abilityMultiplier;
         }
-        if (abilityTimer >= abilityDuration) {
+        if (abilityTimer >= abilityDuration && activated) {
             activated = false;
             abilityTimer = 0;
         }
@@ -41,16 +36,14 @@ public class EngineRoom : MonoBehaviour {
         }
     }
 
-    public void getHit() {
-        damageState++;
+    protected override void doAction() {
+        if (!activated && PowerPlantRoom.currentEnergy >= energyCost) {
+            activated = true;
+            abilityTimer = 0;
+            PowerPlantRoom.currentEnergy -= energyCost;
+        }
     }
 
-    public void getRepaired() {
-        damageState--;
-    }
-
-    public void activateAbility() { //Controller should look for the cooldown
-        activated = true;
-        abilityTimer = 0;
+    protected override void endAction() {
     }
 }
