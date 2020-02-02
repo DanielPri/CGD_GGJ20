@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 596853808237206395}
   m_Layer: 0
   m_Name: Resource_Metal
-  m_TagString: Resource_Energy
+  m_TagString: Resource_Metal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -99,6 +99,7 @@ MonoBehaviour:
   mMaxSpeed: 2
   mMinScale: 0.2
   mMaxScale: 0.6
+  extractorOffset: {x: 0, y: 3, z: 0}
 --- !u!135 &132864377656619753
 SphereCollider:
   m_ObjectHideFlags: 0

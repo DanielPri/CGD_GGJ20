@@ -4,18 +4,22 @@ using System.Collections;
 public class Storage : RoomComponent
 {
 
-    public static int resources_Water;
-    public static int resources_Metal;
+    public static float resources_Metal;
+    public float metalLeakSpeed = 1f;
+    int maximum_storage = 100;
 
-    void Start()
+    new void Start()
     {
-        resources_Water = 0;
+        base.Start();
         resources_Metal = 0;
     }
 
-    // Update is called once per frame
-    void Update()
+    private void handleOxygenReserves()
     {
-
+        if (damageState == DAMAGE_STATE.DESTROYED && resources_Metal > 0)
+        {
+            resources_Metal -= metalLeakSpeed * Time.deltaTime;
+            if (resources_Metal < 0) { resources_Metal = 0; }
+        }
     }
 }

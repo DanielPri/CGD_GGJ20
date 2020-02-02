@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class GameController : MonoBehaviour
 {
     // Important values
-    [SerializeField] private int _TotalDamageToLose = 3;
+    [SerializeField] private int _TotalDamageToLose = 4;
     [SerializeField] private int _ScoreAdded = 10;
     [SerializeField] private int _ScoreModifier = 1;
 
@@ -15,8 +15,15 @@ public class GameController : MonoBehaviour
     [SerializeField] private ShieldRoom _ShieldRoom;
     [SerializeField] private BridgeRoom _BridgeRoom;
     [SerializeField] private EngineRoom _EngineRoom;
+    [SerializeField] private Storage _StorageRoom;
+    [SerializeField] private WaterStorageRoom _WaterRoom;
+    [SerializeField] private Extractor_Beam _TractorRoom;
     [SerializeField] private PowerPlantRoom _PowerPlantRoom;
     [SerializeField] private Persistent _persistent;
+
+    [SerializeField] AudioSource music;
+    [SerializeField] AudioSource intense_music;
+    bool wasIntenseMusic;
 
     // Control variables
     private int _Score; // TODO: Check how scoreboard works later
@@ -27,8 +34,10 @@ public class GameController : MonoBehaviour
     // Sets initial values
     void Start()
     {
+        wasIntenseMusic = false;
         _Score = 0;
         _OxygenRemaining = 1f;
+        music.Play();
     }
 
     // Update other rooms' important information as needed like Engine being functional in the Bridge room
@@ -71,9 +80,30 @@ public class GameController : MonoBehaviour
             countDamage++;
         if (_EngineRoom.damageState == DAMAGE_STATE.DESTROYED)
             countDamage++;
+        if (_PowerPlantRoom.damageState == DAMAGE_STATE.DESTROYED)
+            countDamage++;
+        if (_StorageRoom.damageState == DAMAGE_STATE.DESTROYED)
+            countDamage++;
+        if (_TractorRoom.damageState == DAMAGE_STATE.DESTROYED)
+            countDamage++;
+        if (_WaterRoom.damageState == DAMAGE_STATE.DESTROYED)
+            countDamage++;
 
         // Checks engine damage and updates bridge if necessary
         CheckEngine();
+
+        if (countDamage >= 3)
+        {
+            music.Stop();
+            intense_music.Play();
+            wasIntenseMusic = true;
+        }
+        if (countDamage < 3 && wasIntenseMusic)
+        {
+            music.Play();
+            intense_music.Stop();
+            wasIntenseMusic = false;
+        }
 
         if (countDamage >= _TotalDamageToLose)
         {

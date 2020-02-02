@@ -16,6 +16,7 @@ public class OxygenRoom : RoomComponent
     {
         base.Start();
         animator = GetComponent<Animator>();
+        spriteRenderer = null;
     }
 
     // Update is called once per frame
