@@ -23,16 +23,36 @@ public class HealthDisplay : MonoBehaviour
     void Update()
     {
         counter = controller.getDamagedRooms();
-        index = healthBar.Length - counter;
-        DestroyHealth();
-    }
+        //index = healthBar.Length - counter;
+        //DestroyHealth();
 
-    void DestroyHealth()
-    {
-        if (index < 4 && index >=0)
+        switch (counter)
         {
-            healthBar[index] = red;
-            transform.GetChild(index).GetComponent<SpriteRenderer>().sprite = red;
+            case 0:
+                healthBar[0] = green;
+                healthBar[1] = green;
+                healthBar[2] = green;
+                healthBar[3] = green;
+                break;
+            case 1:
+                healthBar[0] = green;
+                healthBar[1] = green;
+                healthBar[2] = green;
+                healthBar[3] = red;
+                break;
+            case 2:
+                healthBar[0] = green;
+                healthBar[1] = green;
+                healthBar[2] = red;
+                healthBar[3] = red;
+                break;
+            case 3:
+                healthBar[0] = green;
+                healthBar[1] = red;
+                healthBar[2] = red;
+                healthBar[3] = red;
+                break;
+
         }
     }
 }
