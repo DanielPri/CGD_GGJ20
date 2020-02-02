@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1565870946480123148}
   - component: {fileID: -7870622312704405679}
-  - component: {fileID: 1406968020}
   m_Layer: 0
   m_Name: MetalStorage
   m_TagString: Untagged
@@ -58,30 +57,6 @@ MonoBehaviour:
   arrowRotationSpeed: 30
   arrowRotator: {fileID: 0}
   circle: {fileID: 0}
-  metalLeakSpeed: 1
---- !u!114 &1406968020
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1565870946480123150}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3334c50d610ef2b4ab2bf459ce8108dd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  damageState: 0
-  repairSpeed: 4
-  repairProgress: 0
-  destructionFlames: {fileID: 0}
-  destructionSmoke: {fileID: 0}
-  abilityCooldown: 0
-  abilityDuration: 0
-  arrowRotationSpeed: 30
-  arrowRotator: {fileID: 7922596153703429085, guid: 8f25032086eea0e4c8583a3b39bcf770,
-    type: 3}
-  circle: {fileID: 6346306015199582858, guid: d8b308b38b8ba874492b6c1433cfd52e, type: 3}
   metalLeakSpeed: 1
 --- !u!1 &1565870946575950629
 GameObject:
