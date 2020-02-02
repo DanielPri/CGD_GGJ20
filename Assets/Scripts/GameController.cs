@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameController : MonoBehaviour
 {
@@ -9,12 +10,13 @@ public class GameController : MonoBehaviour
     [SerializeField] private int _ScoreAdded = 10;
     [SerializeField] private int _ScoreModifier = 1;
 
-    // References to the rooms
+    // References
     [SerializeField] private OxygenRoom _OxygenRoom;
     [SerializeField] private ShieldRoom _ShieldRoom;
     [SerializeField] private BridgeRoom _BridgeRoom;
     [SerializeField] private EngineRoom _EngineRoom;
     [SerializeField] private PowerPlantRoom _PowerPlantRoom;
+    [SerializeField] private Persistent _persistent;
 
     // Control variables
     private int _Score; // TODO: Check how scoreboard works later
@@ -79,7 +81,9 @@ public class GameController : MonoBehaviour
             // Then lose I guess
             Debug.Log("LOSE!");
             // Save score
+            _persistent.SetPersistScore(_Score);
             // Change scene
+            SceneManager.LoadScene("GameOver");
         }
     }
 
@@ -91,7 +95,6 @@ public class GameController : MonoBehaviour
             // update score accordingly
             _Score += _ScoreAdded * _ScoreModifier;
             // update score UI
-            // TODO: sinchronize with scoreboard (either here or in the scoreboard script)
         }
     }
 }
