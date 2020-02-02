@@ -3,7 +3,10 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Resource_Metal
+  - Resource_Water
+  - Resource_Energy
   layers:
   - Default
   - TransparentFX
