@@ -9,6 +9,8 @@ public class PlayerControl : MonoBehaviour
     public bool isClimbing = false;
     public bool isRepairing = false;
     public bool facingLeft = false;
+    public bool isGrounded = true;
+    public bool snapToLadder = false;
     Animator animator;
     
     public PLAYER player = PLAYER.PLAYER1;
@@ -17,11 +19,11 @@ public class PlayerControl : MonoBehaviour
     private string horizontalAxis = "HorizontalP1";
     private string verticalAxis = "VerticalP1";
     private string repair = "Player1Repair";
-    
+    private float ladderCenter = 0f;
+
     // Start is called before the first frame update
     void Start()
     {
-        Speed = 1;
         RB = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         if(player == PLAYER.PLAYER2)
@@ -43,13 +45,14 @@ public class PlayerControl : MonoBehaviour
     public void MoveCharacter()
     {
         float UserInputHorizontal = Input.GetAxisRaw(horizontalAxis);
-        
+        Debug.Log(UserInputHorizontal);
         if (UserInputHorizontal != 0)
         {
             isRunning = true;
 
             if (UserInputHorizontal < 0)
             {
+                Debug.Log("AM HERE");
                 facingLeft = true;
                 GetComponent<SpriteRenderer>().flipX = true;
             }
@@ -68,7 +71,6 @@ public class PlayerControl : MonoBehaviour
         }
         
         float UserInputVertical;
-        
         if (isClimbing)
         {
             UserInputVertical = Input.GetAxisRaw(verticalAxis);
@@ -79,12 +81,23 @@ public class PlayerControl : MonoBehaviour
         }
         transform.position = new Vector3(Time.deltaTime * Speed * UserInputHorizontal + transform.position.x, Time.deltaTime * Speed * UserInputVertical + transform.position.y, 0);
 
+        if (isClimbing && !isGrounded)
+        {
+            snapToLadder = true;
+            transform.position = new Vector3(ladderCenter, Time.deltaTime * Speed * UserInputVertical + transform.position.y, 0);
+        }
+        else
+        {
+            snapToLadder = false;
+        }
+        
+
     }
 
     private void Animate()
     {
         animator.SetBool("isRunning", isRunning);
-        animator.SetBool("isClimbing", isClimbing);
+        animator.SetBool("isClimbing", snapToLadder);
         animator.SetBool("isRepairing", isRepairing);
     }
 
@@ -107,6 +120,11 @@ public class PlayerControl : MonoBehaviour
             isClimbing = true;
             RB.gravityScale = 0;
             RB.velocity = Vector2.zero;
+            ladderCenter = col.bounds.center.x;
+        }
+        if (col.tag == "Floor")
+        {
+            isGrounded = true;
         }
     }
 
@@ -117,6 +135,10 @@ public class PlayerControl : MonoBehaviour
             isClimbing = false;
             RB.gravityScale = 1;
         }
-    }
 
+        if (col.tag == "Floor")
+        {
+            isGrounded = false;
+        }
+    }
 }
