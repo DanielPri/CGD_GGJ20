@@ -55,6 +55,7 @@ public class Enemy : MonoBehaviour
         }
         if (name == "storage")
         {
+            print(FindObjectOfType<Storage>());
             FindObjectOfType<Storage>().GetHit();
         }
     }
