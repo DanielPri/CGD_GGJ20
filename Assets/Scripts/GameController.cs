@@ -29,6 +29,10 @@ public class GameController : MonoBehaviour
     private int _Score; // TODO: Check how scoreboard works later
     private float _OxygenRemaining; // Get it from OxygenRoom
 
+
+    // Health
+    private int countDamage;
+
     // Maybe this controller sets everything on game/scene start?
 
     // Sets initial values
@@ -53,6 +57,11 @@ public class GameController : MonoBehaviour
         _OxygenRemaining = _OxygenRoom.oxygenRemaining;
     }
 
+    public int getDamagedRooms()
+    {
+        return countDamage;
+    }
+
     // Check if engine is operational or not (is only working again once its fully repaired)
     private void CheckEngine()
     {
@@ -70,7 +79,7 @@ public class GameController : MonoBehaviour
     private void CheckDamage()
     {
         // Check if each room is damaged
-        int countDamage = 0;
+        countDamage = 0;
 
         if (_OxygenRoom.damageState == DAMAGE_STATE.DESTROYED)
             countDamage++;
