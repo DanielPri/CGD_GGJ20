@@ -10,11 +10,31 @@ public class OxygenRoom : RoomComponent
     public float oxygenLeakSpeed = 0.05f;
     public float oxygenReplenishSpeed = 0.5f;
 
+    private Animator animator;
+
+    new void Start()
+    {
+        base.Start();
+        animator = GetComponent<Animator>();
+    }
+
     // Update is called once per frame
     new void Update()
     {
         base.Update();
         handleOxygenReserves();
+        if (damageState == DAMAGE_STATE.FUNCTIONAL)
+        {
+            animator.SetTrigger("isFull");
+        }
+        else if (damageState == DAMAGE_STATE.DAMAGED)
+        {
+            animator.SetTrigger("isMid");
+        }
+        else
+        {
+            animator.SetTrigger("isLow");
+        }
     }
 
     private void handleOxygenReserves()
@@ -30,6 +50,4 @@ public class OxygenRoom : RoomComponent
             if (oxygenRemaining > 1) { oxygenRemaining = 1; }
         }
     }
-
-
 }

@@ -7,6 +7,7 @@ public class Extractor_Beam : RoomComponent
     public static bool extracting;
     public static Vector3 extractor_beam_position;
 
+
     // Start is called before the first frame update
     new void Start()
     {
