@@ -227,6 +227,9 @@ public class RoomComponent : MonoBehaviour
 
     public void GetHit()
     {
-        damageState++;
+        if (damageState == DAMAGE_STATE.DESTROYED)
+        {
+            damageState++;
+        }
     }
 }
