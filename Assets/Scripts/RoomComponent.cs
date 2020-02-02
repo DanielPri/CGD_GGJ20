@@ -10,7 +10,8 @@ public class RoomComponent : MonoBehaviour
 
     protected RepairZone repairZone;
     protected bool canRepair = false;
-    protected float repairProgress = 0f;
+    [Range(0.0f, 1.0f)]
+    public float repairProgress = 0f;
     protected PLAYER occupyingPlayer = PLAYER.NONE;
 
     void Start()
@@ -18,7 +19,7 @@ public class RoomComponent : MonoBehaviour
         repairZone = GetComponentInChildren<RepairZone>();
     }
 
-    void Update()
+    protected void Update()
     {
         setRepairStatus();
         checkOccupyingPlayer();
@@ -37,6 +38,7 @@ public class RoomComponent : MonoBehaviour
         if (Input.GetButton("Player1Repair") && occupyingPlayer == PLAYER.PLAYER1)
         {
             repair();
+            Debug.Log("Repairing!");
         }
         if (Input.GetButton("Player2Repair") && occupyingPlayer == PLAYER.PLAYER2)
         {
@@ -50,15 +52,34 @@ public class RoomComponent : MonoBehaviour
         {
             doAction();
         }
+        if (Input.GetButtonUp("Player1Action") && occupyingPlayer == PLAYER.PLAYER1)
+        {
+            endAction();
+        }
+        if (Input.GetButtonUp("Player2Action") && occupyingPlayer == PLAYER.PLAYER2)
+        {
+            endAction();
+        }
 
     }
+    
+    /// <summary>
+    /// What happens to the action when the player releases the button
+    /// </summary>
+    virtual protected void endAction()
+    {
+        // implement pls
+    }
 
+    /// <summary>
+    ///  The action to be performed while a player is holding the action button in the zone
+    /// </summary>
     virtual protected void doAction()
     {
         // implement this in the extending class
     }
 
-    void repair()
+    protected void repair()
     {
         if (canRepair)
         {
