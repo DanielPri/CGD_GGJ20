@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -28,7 +28,7 @@ public class PowerPlantRoom : RoomComponent
     public void burnRessources() {
         currentEnergy += burnedRessources;
     }
-
+    
     protected override void doAction() {
         if(/*Storage.metal < burnedRessources &&*/ currentEnergy < totalEnergy) {
             //Storage.metal -= burnedRessources;
