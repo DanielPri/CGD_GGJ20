@@ -32,7 +32,7 @@ public class StorageResourceUI : MonoBehaviour
     {
         waterText.text = WaterStorageRoom.resources_Water.ToString();
         metalText.text = Storage.resources_Metal.ToString();
-        handleVisibility();
+        //handleVisibility();
     }
 
     private void handleVisibility()

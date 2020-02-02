@@ -38,6 +38,7 @@ public class PowerPlantRoom : RoomComponent
     new void Update()
     {
         regenerateEnergy();
+        base.Update();
     }
 
     public void burnRessources() {
