@@ -75,6 +75,7 @@ public class PlayerControl : MonoBehaviour
         {
             isClimbing = true;
             RB.gravityScale = 0;
+            RB.velocity = Vector2.zero;
         }
     }
 
