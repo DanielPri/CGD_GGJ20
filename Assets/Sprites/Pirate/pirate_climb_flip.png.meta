@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 9652ea8d279335f41a618d02c8e3e8aa
+guid: 14b1de94411303549ad753e778466a84
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 1833247098351559992
-    second: Ladder_0
+      213: -8324017189857513895
+    second: pirate_climb_flip_0
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -46,11 +46,11 @@ TextureImporter:
   spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
-  alignment: 9
-  spritePivot: {x: 0.4184028, y: 0.46701387}
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 100
-  spriteBorder: {x: 94, y: 0, z: 189, w: 25}
-  spriteGenerateFallbackPhysicsShape: 0
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
   alphaIsTransparency: 1
   spriteTessellationDetail: -1
@@ -89,13 +89,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Ladder_0
+      name: pirate_climb_flip_0
       rect:
         serializedVersion: 2
-        x: 95
-        y: 0
-        width: 320
-        height: 575
+        x: 172
+        y: 144
+        width: 419
+        height: 706
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -103,8 +103,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 835a2c2e580017910800000000000000
-      internalID: 1833247098351559992
+      spriteID: 95e2c46e7762b7c80800000000000000
+      internalID: -8324017189857513895
       vertices: []
       indices: 
       edges: []
