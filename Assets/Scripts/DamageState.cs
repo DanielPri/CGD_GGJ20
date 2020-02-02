@@ -1,4 +1,4 @@
-﻿enum DAMAGE_STATE{
+﻿public enum DAMAGE_STATE{
    FUNCTIONAL,
    DAMAGED,
    DESTROYED
