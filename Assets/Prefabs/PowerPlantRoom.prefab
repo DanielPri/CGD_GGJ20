@@ -345,7 +345,7 @@ MonoBehaviour:
   arrowRotator: {fileID: 7922596153703429085, guid: 8f25032086eea0e4c8583a3b39bcf770,
     type: 3}
   circle: {fileID: 6346306015199582858, guid: d8b308b38b8ba874492b6c1433cfd52e, type: 3}
-  regenEnergy: 0
+  regenEnergy: 2
   regenCooldown: 0
   burnedRessources: 0
 --- !u!1001 &5959971763921044890

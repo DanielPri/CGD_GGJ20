@@ -30,9 +30,14 @@ public class PowerPlantRoom : RoomComponent
 
     void regenerateEnergy() { //Overtime regeneration
         if (currentEnergy < totalEnergy) {
-            currentEnergy += regenEnergy;
+            currentEnergy += regenEnergy * Time.deltaTime * 0.5f;
             if (currentEnergy > totalEnergy) currentEnergy = totalEnergy;
         }
+    }
+
+    new void Update()
+    {
+        regenerateEnergy();
     }
 
     public void burnRessources() {
