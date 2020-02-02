@@ -8,6 +8,7 @@ TagManager:
   - Ladder
   - Resource_Water
   - Resource_Energy
+  - Enemy
   layers:
   - Default
   - TransparentFX
