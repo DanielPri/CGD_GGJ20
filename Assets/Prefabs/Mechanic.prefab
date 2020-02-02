@@ -14,9 +14,9 @@ GameObject:
   - component: {fileID: 4116204780021399372}
   - component: {fileID: 4116204780021399373}
   - component: {fileID: 1176404231}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Mechanic
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -118,7 +118,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.5900953, y: -0.11293149}
+  m_Offset: {x: -0.0043691397, y: -0.5107832}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.6455977, y: 0.51562613}
@@ -129,7 +129,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 4.08, y: 6.48}
+  m_Size: {x: 1.7149942, y: 5.6842966}
   m_EdgeRadius: 0
 --- !u!50 &4116204780021399373
 Rigidbody2D:
@@ -151,7 +151,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!114 &1176404231
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -164,7 +164,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1e172674ae6a824b8e1a9c501c730b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Speed: 0
+  Speed: 3
   isRunning: 0
   isClimbing: 0
   isRepairing: 0
+  facingLeft: 0
+  isGrounded: 1
+  snapToLadder: 0
+  player: 0

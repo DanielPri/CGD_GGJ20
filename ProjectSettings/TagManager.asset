@@ -8,6 +8,7 @@ TagManager:
   - Ladder
   - Resource_Water
   - Resource_Energy
+  - Floor
   layers:
   - Default
   - TransparentFX
@@ -17,8 +18,8 @@ TagManager:
   - UI
   - 
   - 
-  - 
-  - 
+  - Player
+  - Floor
   - 
   - 
   - 
