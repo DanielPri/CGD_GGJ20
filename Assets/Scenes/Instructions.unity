@@ -332,7 +332,13 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Awn yeah
+  m_Text: 'Player 1: WASD, R - repair, T - action
+
+    Player 2: arrow keys, Page
+    Up - repair, Enter - action
+
+
+    You must repair your boat, pretty easy, huh?'
 --- !u!222 &639145252
 CanvasRenderer:
   m_ObjectHideFlags: 0
