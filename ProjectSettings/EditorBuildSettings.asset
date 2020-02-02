@@ -9,9 +9,6 @@ EditorBuildSettings:
     path: Assets/Scenes/MainMenu.unity
     guid: ce5345793a18b53429c25665e431b603
   - enabled: 1
-    path: Assets/Scenes/SampleScene.unity
-    guid: 2cda990e2423bbf4892e6590ba056729
-  - enabled: 1
     path: Assets/Scenes/GameOver.unity
     guid: a8bbb166a0c53434487ee7f9a402d6c6
   - enabled: 1
@@ -23,4 +20,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/CreditScene.unity
     guid: dcdaf67bb05e3c94aa93e0e5ba3faedf
+  - enabled: 1
+    path: Assets/Scenes/BoatCombiner-Rose.unity
+    guid: 72486f0e000fbc7439af5a3397db12a6
   m_configObjects: {}

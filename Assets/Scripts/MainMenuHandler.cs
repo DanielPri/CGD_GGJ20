@@ -18,10 +18,7 @@ public class MainMenuHandler : MonoBehaviour
 
     public void LoadGameScene()
     {
-        // TODO: Change the name to the correct scene
-        // NOT WORKING!
-        //SceneManager.LoadScene("SampleScene");
-        SceneManager.LoadScene("GameOver");
+        SceneManager.LoadScene("BoatCombiner-Rose");
     }
 
     public void LoadInstructionsScene()
