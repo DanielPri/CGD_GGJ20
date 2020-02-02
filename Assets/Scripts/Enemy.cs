@@ -15,4 +15,47 @@ public class Enemy : MonoBehaviour
     {
         
     }
+
+    private void DestroyEnemy()
+    {
+        Destroy(gameObject);
+    }
+
+    void Attack(string name)
+    {
+        GetComponentInChildren<Animator>().Play("dead_shark");
+
+        if (name == "oxygen")
+        {
+            FindObjectOfType<OxygenRoom>().GetHit();
+        }
+        if (name == "bridge")
+        {
+            FindObjectOfType<BridgeRoom>().GetHit();
+        }
+        if (name == "powerplant")
+        {
+            FindObjectOfType<PowerPlantRoom>().GetHit();
+        }
+        if (name == "water")
+        {
+            //GetComponent<WaterRoom>().GetHit();
+        }
+        if (name == "engine")
+        {
+            FindObjectOfType<EngineRoom>().GetHit();
+        }
+        if (name == "shield")
+        {
+            FindObjectOfType<ShieldRoom>().GetHit();
+        }
+        if (name == "tractor")
+        {
+            FindObjectOfType<Extractor_Beam>().GetHit();
+        }
+        if (name == "storage")
+        {
+            FindObjectOfType<Storage>().GetHit();
+        }
+    }
 }

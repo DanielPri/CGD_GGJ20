@@ -147,4 +147,10 @@ public class RoomComponent : MonoBehaviour
         }
 
     }
+
+    public void GetHit()
+    {
+        damageState++;
+    }
+
 }

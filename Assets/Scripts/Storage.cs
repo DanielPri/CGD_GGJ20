@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Storage : MonoBehaviour
+public class Storage : RoomComponent
 {
 
     public static int resources_Water;
