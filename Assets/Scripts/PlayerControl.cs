@@ -11,6 +11,7 @@ public class PlayerControl : MonoBehaviour
     public bool isRepairing = false;
     public bool isInteracting = false;
     public bool facingLeft = false;
+    public float gravityPwr = 1f;
     
     public LayerMask floorLayerMask;
     public float raycastLength = 0.5f;
@@ -161,7 +162,7 @@ public class PlayerControl : MonoBehaviour
         if (col.tag == "Ladder")
         {
             isClimbing = false;
-            RB.gravityScale = 1;
+            RB.gravityScale = gravityPwr;
         }
     }
 }
