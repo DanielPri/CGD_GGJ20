@@ -17,6 +17,9 @@ public class HighScoreManager : MonoBehaviour
     [SerializeField] private bool _isEndOfGame = false;
     private int _score = 0;
 
+    private Text _nameTable = null;
+    private Text _scoreTable = null;
+
     [Serializable] public struct scores{
         public string name;
         public int score;
@@ -109,16 +112,24 @@ public class HighScoreManager : MonoBehaviour
         {
             name.text = "";
             score.text = "";
-            for (int i = _highScoreList.Count -1; i >= 0; i--)
-            {
-                name.text = name.text + _highScoreList[i].name.ToUpper() + "\n";
-                score.text = score.text + _highScoreList[i].score + "\n";
-            }
+            _nameTable = name;
+            _scoreTable = score;
+            StartCoroutine(AnimWriteScores());
         }
          else
         {
             name.text = "NONE!";
             score.text = "";
+        }
+    }
+
+    private IEnumerator AnimWriteScores ()
+    {
+        for (int i = _highScoreList.Count - 1; i >= 0; i--)
+        {
+            _nameTable.text = _nameTable.text + _highScoreList[i].name.ToUpper() + "\n";
+            _scoreTable.text = _scoreTable.text + _highScoreList[i].score + "\n";
+            yield return new WaitForSeconds(0.01f);
         }
     }
 
