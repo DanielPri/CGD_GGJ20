@@ -25,13 +25,7 @@ public class PlayerControl : MonoBehaviour
     private string interact = "Player1Action";
     private float ladderCenter = 0f;
     private Collider2D collider;
-    [Range(1, 50)]
-    [SerializeField] private int arrowRotationSpeed = 30;
-    [SerializeField] private GameObject arrowRotator, circle, space, pointsUi;
 
-    private AudioSource audioSource;
-    private float arrowRotation = 0.0f;
-    private bool isSkillCheckOn = false;
 
     // Start is called before the first frame update
     void Start()
@@ -56,10 +50,7 @@ public class PlayerControl : MonoBehaviour
         Repair();
         Interact();
         isGroundedRay();
-        if (isSkillCheckOn)
-        {
-            DoSkillCheck();
-        }
+        
     }
 
     public void MoveCharacter()
@@ -131,7 +122,6 @@ public class PlayerControl : MonoBehaviour
         if (Input.GetButtonDown(repair))
         {
             isRepairing = true;
-            SkillCheckStarter();
         }
         else
         {
@@ -177,63 +167,5 @@ public class PlayerControl : MonoBehaviour
         }
     }
 
-    void SkillCheckStarter()
-    {
-        Vector3 currentCircleRotation = circle.transform.rotation.eulerAngles;
-        circle.transform.rotation = Quaternion.Euler(currentCircleRotation.x, currentCircleRotation.y, UnityEngine.Random.Range(160, 360));
-        SetActiveGameUI(true);
-        isSkillCheckOn = true;
-    }
-    void SetActiveGameUI(bool isActive)
-    {
-        arrowRotator.SetActive(isActive);
-        circle.SetActive(isActive);
-        space.SetActive(isActive);
-    }
-    void DoSkillCheck()
-    {
-        // Rotate the arrow and store current rotation angle
-        arrowRotation += Time.deltaTime * arrowRotationSpeed * -10;
-        arrowRotator.transform.Rotate(0, 0, Time.deltaTime * arrowRotationSpeed * -10, Space.World);
-
-        if (Input.GetKeyDown("space"))
-        {
-            // Arrow in good skill check zone
-            if (arrowRotator.transform.rotation.eulerAngles.z >= circle.transform.rotation.eulerAngles.z - 158
-                && arrowRotator.transform.rotation.eulerAngles.z < circle.transform.rotation.eulerAngles.z - 120)
-            {
-                pointsUi.SetActive(true);
-                Invoke("DeactivatePointsUI", 3);
-                FinishSkillCheck(true);
-            }
-
-            // Arrow not in skill check zone
-            else
-            {
-                FinishSkillCheck(false);
-            }
-        }
-        // Arrow went full circle
-        if (-arrowRotation >= 360)
-        {
-            FinishSkillCheck(false);
-        }
-
-    }
-    void FinishSkillCheck(bool result)
-    {
-        isSkillCheckOn = false;
-        arrowRotation = 0.0f;
-        arrowRotator.transform.rotation = Quaternion.Euler(Vector3.zero);
-        SetActiveGameUI(false);
-        if (result == false)
-        {
-
-        }
-        else
-        {
-
-        }
-        pointsUi.SetActive(false);
-    }
+    
 }

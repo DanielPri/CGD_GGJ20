@@ -922,6 +922,26 @@ PrefabInstance:
       propertyPath: damageState
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1026166048851922854, guid: 80a2b3b64ed33eb48b9474e81def77f0,
+        type: 3}
+      propertyPath: space
+      value: 
+      objectReference: {fileID: 2285022}
+    - target: {fileID: 1026166048851922854, guid: 80a2b3b64ed33eb48b9474e81def77f0,
+        type: 3}
+      propertyPath: pointsUi
+      value: 
+      objectReference: {fileID: 1383452324}
+    - target: {fileID: 1026166048851922854, guid: 80a2b3b64ed33eb48b9474e81def77f0,
+        type: 3}
+      propertyPath: circle
+      value: 
+      objectReference: {fileID: 454820926}
+    - target: {fileID: 1026166048851922854, guid: 80a2b3b64ed33eb48b9474e81def77f0,
+        type: 3}
+      propertyPath: arrowRotator
+      value: 
+      objectReference: {fileID: 1472081324}
     - target: {fileID: 1026166049312160422, guid: 80a2b3b64ed33eb48b9474e81def77f0,
         type: 3}
       propertyPath: m_FlipX
@@ -941,36 +961,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4c66df9cb678e1478dded983677e12a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &369005006
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 369005007}
-  m_Layer: 0
-  m_Name: GameObject
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &369005007
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 369005006}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 385.00433, y: 129.77513, z: -18.400383}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 13
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &435716550
 GameObject:
   m_ObjectHideFlags: 0
@@ -2586,6 +2576,11 @@ MonoBehaviour:
   repairProgress: 0
   abilityCooldown: 0
   abilityDuration: 0
+  arrowRotationSpeed: 30
+  arrowRotator: {fileID: 0}
+  circle: {fileID: 0}
+  space: {fileID: 0}
+  pointsUi: {fileID: 0}
   regenEnergy: 0
   regenCooldown: 0
   burnedRessources: 0
@@ -2763,6 +2758,11 @@ MonoBehaviour:
   repairProgress: 0
   abilityCooldown: 0
   abilityDuration: 0
+  arrowRotationSpeed: 30
+  arrowRotator: {fileID: 0}
+  circle: {fileID: 0}
+  space: {fileID: 0}
+  pointsUi: {fileID: 0}
   maxSpeed: 0
   damagedMultiplier: 0
   destroyedMultiplier: 0

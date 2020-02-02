@@ -6,7 +6,7 @@ using UnityEngine;
 public class RoomComponent : MonoBehaviour
 {
     public DAMAGE_STATE damageState = DAMAGE_STATE.FUNCTIONAL;
-    public float repairSpeed = 2f;
+    public float repairSpeed = 4f;
 
     protected RepairZone repairZone;
     protected bool canRepair = false;
@@ -21,6 +21,13 @@ public class RoomComponent : MonoBehaviour
     protected float abilityTimer = 0; //Calculates the duration and the cooldown
     public float energyCost { get; protected set; } //Energy cost of the ability
 
+    [Range(1, 50)]
+    [SerializeField] private int arrowRotationSpeed = 30;
+    [SerializeField] private GameObject arrowRotator, circle, space, pointsUi;
+
+    private AudioSource audioSource;
+    private float arrowRotation = 0.0f;
+    private bool isSkillCheckOn = false;
     protected void Start()
     {
         repairZone = GetComponentInChildren<RepairZone>();
@@ -31,6 +38,10 @@ public class RoomComponent : MonoBehaviour
         setRepairStatus();
         checkOccupyingPlayer();
         handleInput();
+        if (isSkillCheckOn)
+        {
+            DoSkillCheck();
+        }
         // handle room stuff like light turning on;
     }
 
@@ -90,12 +101,8 @@ public class RoomComponent : MonoBehaviour
     {
         if (canRepair)
         {
-            repairProgress += repairSpeed * Time.deltaTime;
-            if (repairProgress >= 1f)
-            {
-                changeDamageState();
-                repairProgress = 0f;
-            }
+            SkillCheckStarter();
+            
         }
     }
 
@@ -126,5 +133,75 @@ public class RoomComponent : MonoBehaviour
             canRepair = repairZone.isOccupied;
         }
 
+    }
+
+    void SkillCheckStarter()
+    {
+        Vector3 currentCircleRotation = circle.transform.rotation.eulerAngles;
+        circle.transform.rotation = Quaternion.Euler(currentCircleRotation.x, currentCircleRotation.y, UnityEngine.Random.Range(160, 360));
+        SetActiveGameUI(true);
+        isSkillCheckOn = true;
+    }
+    void SetActiveGameUI(bool isActive)
+    {
+        arrowRotator.SetActive(isActive);
+        circle.SetActive(isActive);
+        space.SetActive(isActive);
+    }
+    void DoSkillCheck()
+    {
+        // Rotate the arrow and store current rotation angle
+        arrowRotation += Time.deltaTime * arrowRotationSpeed * -10;
+        arrowRotator.transform.Rotate(0, 0, Time.deltaTime * arrowRotationSpeed * -10, Space.World);
+
+        if (Input.GetKeyDown("space"))
+        {
+            // Arrow in good skill check zone
+            if (arrowRotator.transform.rotation.eulerAngles.z >= circle.transform.rotation.eulerAngles.z - 158
+                && arrowRotator.transform.rotation.eulerAngles.z < circle.transform.rotation.eulerAngles.z - 120)
+            {
+                pointsUi.SetActive(true);
+                Invoke("DeactivatePointsUI", 3);
+                FinishSkillCheck(true);
+            }
+
+            // Arrow not in skill check zone
+            else
+            {
+                FinishSkillCheck(false);
+            }
+        }
+        // Arrow went full circle
+        if (-arrowRotation >= 360)
+        {
+            FinishSkillCheck(false);
+        }
+
+    }
+    void FinishSkillCheck(bool result)
+    {
+        isSkillCheckOn = false;
+        arrowRotation = 0.0f;
+        arrowRotator.transform.rotation = Quaternion.Euler(Vector3.zero);
+        SetActiveGameUI(false);
+        if (result)
+        {
+            repairProgress += repairSpeed * Time.deltaTime*10;
+            if (repairProgress >= 1f)
+            {
+                changeDamageState();
+                repairProgress = 0f;
+            }
+        }
+        else
+        {
+            repairProgress += repairSpeed * Time.deltaTime;
+            if (repairProgress >= 1f)
+            {
+                changeDamageState();
+                repairProgress = 0f;
+            }
+        }
+        pointsUi.SetActive(false);
     }
 }
