@@ -61,7 +61,8 @@ public class ShieldRoom : RoomComponent
     {
         // Activate shield and all that
         // TODO: Check energy cost and if there is enough
-        if (!activated && !onCooldown && damageState != DAMAGE_STATE.DESTROYED)
+        if (!activated && !onCooldown && damageState != DAMAGE_STATE.DESTROYED
+            && (PowerPlantRoom.currentEnergy >= energyCost))
         {
             ActivateShield();
         }

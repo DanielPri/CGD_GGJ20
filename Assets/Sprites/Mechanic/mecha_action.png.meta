@@ -1,10 +1,16 @@
 fileFormatVersion: 2
-guid: 9652ea8d279335f41a618d02c8e3e8aa
+guid: 46c8349b6eb017e4ba299dee37668cdd
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 1833247098351559992
-    second: Ladder_0
+      213: -4155589885411654541
+    second: mecha_action_0
+  - first:
+      213: -6199738260276815081
+    second: mecha_action_1
+  - first:
+      213: 3686096740834291734
+    second: mecha_action_2
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -46,11 +52,11 @@ TextureImporter:
   spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
-  alignment: 9
-  spritePivot: {x: 0.4184028, y: 0.46701387}
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 100
-  spriteBorder: {x: 94, y: 0, z: 189, w: 25}
-  spriteGenerateFallbackPhysicsShape: 0
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
   alphaIsTransparency: 1
   spriteTessellationDetail: -1
@@ -89,22 +95,43 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Ladder_0
+      name: mecha_action_0
       rect:
         serializedVersion: 2
-        x: 95
-        y: 0
-        width: 320
-        height: 575
+        x: 125
+        y: 1118
+        width: 419
+        height: 647
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 835a2c2e580017910800000000000000
-      internalID: 1833247098351559992
+      spriteID: 37405d734016456c0800000000000000
+      internalID: -4155589885411654541
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mecha_action_2
+      rect:
+        serializedVersion: 2
+        x: 652
+        y: 1135
+        width: 637
+        height: 607
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 610372db475a72330800000000000000
+      internalID: 3686096740834291734
       vertices: []
       indices: 
       edges: []
