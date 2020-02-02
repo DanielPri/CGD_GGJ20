@@ -116,7 +116,7 @@ public class GameController : MonoBehaviour
             wasIntenseMusic = false;
         }
 
-        if (countDamage >= _TotalDamageToLose)
+        if (countDamage >= _TotalDamageToLose || _OxygenRemaining <= 0)
         {
             // Then lose I guess
             Debug.Log("LOSE!");
