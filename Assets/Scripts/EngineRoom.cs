@@ -37,10 +37,10 @@ public class EngineRoom : RoomComponent {
     }
 
     protected override void doAction() {
-        if (!activated) { // && Storage.energy >= energyCost
+        if (!activated && PowerPlantRoom.currentEnergy >= energyCost) {
             activated = true;
             abilityTimer = 0;
-            //Storage.energy -= energyCost;
+            PowerPlantRoom.currentEnergy -= energyCost;
         }
     }
 

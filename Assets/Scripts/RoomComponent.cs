@@ -27,7 +27,8 @@ public class RoomComponent : MonoBehaviour
 
     [Range(1, 50)]
     [SerializeField] private int arrowRotationSpeed = 30;
-    [SerializeField] private GameObject arrowRotator, circle, space, pointsUi;
+    [SerializeField] private GameObject arrowRotator, circle/*, space, pointsUi*/;
+    string key;
 
     private AudioSource audioSource;
     private float arrowRotation = 0.0f;
@@ -111,18 +112,34 @@ public class RoomComponent : MonoBehaviour
         //ALSO the button names are placeholders until we decide on the button
         if (Input.GetButton("Player1Repair") && occupyingPlayer == PLAYER.PLAYER1)
         {
+            PlayerControl[] playerList = FindObjectsOfType<PlayerControl>();
+            for (int i = 0; i < playerList.Length; i++) {
+                if (playerList[i].player == PLAYER.PLAYER1) {
+                    circle = playerList[i].gameObject.transform.GetChild(0).gameObject;
+                    arrowRotator = playerList[i].gameObject.transform.GetChild(1).gameObject;
+                }
+            }
+            key = "Player1Action";
             repair();
             Debug.Log("Repairing!");
         }
-        if (Input.GetButton("Player2Repair") && occupyingPlayer == PLAYER.PLAYER2)
+        else if (Input.GetButton("Player2Repair") && occupyingPlayer == PLAYER.PLAYER2)
         {
+            PlayerControl[] playerList = FindObjectsOfType<PlayerControl>();
+            for (int i = 0; i < playerList.Length; i++) {
+                if (playerList[i].player == PLAYER.PLAYER2) {
+                    circle = playerList[i].gameObject.transform.GetChild(0).gameObject;
+                    arrowRotator = playerList[i].gameObject.transform.GetChild(1).gameObject;
+                }
+            }
+            key = "Player2Action";
             repair();
         }
-        if (Input.GetButton("Player1Action") && occupyingPlayer == PLAYER.PLAYER1)
+        else if (Input.GetButton("Player1Action") && occupyingPlayer == PLAYER.PLAYER1)
         {
             doAction();
         }
-        if (Input.GetButton("Player2Action") && occupyingPlayer == PLAYER.PLAYER2)
+        else if (Input.GetButton("Player2Action") && occupyingPlayer == PLAYER.PLAYER2)
         {
             doAction();
         }
@@ -155,7 +172,7 @@ public class RoomComponent : MonoBehaviour
 
     protected void repair()
     {
-        if (canRepair)
+        if (canRepair && !isSkillCheckOn)
         {
             SkillCheckStarter();
             
@@ -202,28 +219,30 @@ public class RoomComponent : MonoBehaviour
     {
         arrowRotator.SetActive(isActive);
         circle.SetActive(isActive);
-        space.SetActive(isActive);
+        //space.SetActive(isActive);
     }
     void DoSkillCheck()
     {
         // Rotate the arrow and store current rotation angle
-        arrowRotation += Time.deltaTime * arrowRotationSpeed * -10;
-        arrowRotator.transform.Rotate(0, 0, Time.deltaTime * arrowRotationSpeed * -10, Space.World);
+        arrowRotation += Time.deltaTime * arrowRotationSpeed * -5;
+        arrowRotator.transform.Rotate(0, 0, Time.deltaTime * arrowRotationSpeed * -5, Space.World);
 
-        if (Input.GetKeyDown("space"))
+        if (Input.GetButton(key))
         {
             // Arrow in good skill check zone
-            if (arrowRotator.transform.rotation.eulerAngles.z >= circle.transform.rotation.eulerAngles.z - 158
-                && arrowRotator.transform.rotation.eulerAngles.z < circle.transform.rotation.eulerAngles.z - 120)
+            if (arrowRotator.transform.rotation.eulerAngles.z >= circle.transform.rotation.eulerAngles.z - 100
+                && arrowRotator.transform.rotation.eulerAngles.z < circle.transform.rotation.eulerAngles.z - 40)
             {
-                pointsUi.SetActive(true);
-                Invoke("DeactivatePointsUI", 3);
+                print("wow skillcheck");
+                /*pointsUi.SetActive(true);
+                Invoke("DeactivatePointsUI", 3);*/
                 FinishSkillCheck(true);
             }
 
             // Arrow not in skill check zone
             else
             {
+                print("wow tou suck");
                 FinishSkillCheck(false);
             }
         }
@@ -258,7 +277,7 @@ public class RoomComponent : MonoBehaviour
                 repairProgress = 0f;
             }
         }
-        pointsUi.SetActive(false);
+        //pointsUi.SetActive(false);
     }
 
     public void GetHit()
