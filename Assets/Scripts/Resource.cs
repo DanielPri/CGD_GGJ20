@@ -76,7 +76,7 @@ public class Resource : MonoBehaviour
         {
             gettingExtracted = true;
             point1 = transform.position;
-            point2 = new Vector3(0, Extractor_Beam.extractor_beam_position.y, 0);
+            point2 = new Vector3(0, Extractor_Beam.extractor_beam_position.y, transform.position.z);
 
             startTime = Time.time;
             journeyLength = Vector3.Distance(point1, point2);
