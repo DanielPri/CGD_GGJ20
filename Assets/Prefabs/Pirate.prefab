@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 1842750198}
   m_Layer: 0
   m_Name: Pirate
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -164,8 +164,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1e172674ae6a824b8e1a9c501c730b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Speed: 0
+  Speed: 2.95
   isRunning: 0
   isClimbing: 0
   isRepairing: 0
+  facingLeft: 0
+  isGrounded: 1
+  floorLayerMask:
+    serializedVersion: 2
+    m_Bits: 0
+  raycastLength: 0.5
   player: 0
