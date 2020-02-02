@@ -14,6 +14,10 @@ public class RoomComponent : MonoBehaviour
     public float repairProgress = 0f;
     protected PLAYER occupyingPlayer = PLAYER.NONE;
 
+    public GameObject miniGamePrefab;
+    public GameObject activeMiniGame;
+    bool isSpawned = false;
+
     void Start()
     {
         repairZone = GetComponentInChildren<RepairZone>();
@@ -83,6 +87,15 @@ public class RoomComponent : MonoBehaviour
     {
         if (canRepair)
         {
+            /*
+            if (isSpawned == false)
+            {
+                activeMiniGame = Instantiate(miniGamePrefab, transform.position, Quaternion.identity);
+                isSpawned = true;
+            }
+            */
+            //if (activeMiniGame == null)
+                //isSpawned = false;
             repairProgress += repairSpeed * Time.deltaTime;
             if (repairProgress >= 1f)
             {
