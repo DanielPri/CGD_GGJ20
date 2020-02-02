@@ -1,19 +1,16 @@
 fileFormatVersion: 2
-guid: 2fef10157b3b20c4d9932a2fe7cb1e66
+guid: 46c8349b6eb017e4ba299dee37668cdd
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -2156591802362823041
-    second: mecha_running_0
+      213: -4155589885411654541
+    second: mecha_action_0
   - first:
-      213: 7793560386853083303
-    second: mecha_running_1
+      213: -6199738260276815081
+    second: mecha_action_1
   - first:
-      213: 3921452426114123905
-    second: mecha_running_2
-  - first:
-      213: 4356323698154158579
-    second: mecha_running_3
+      213: 3686096740834291734
+    second: mecha_action_2
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -98,85 +95,43 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: mecha_running_0
+      name: mecha_action_0
       rect:
         serializedVersion: 2
-        x: 152
-        y: 876
-        width: 503
-        height: 686
-      alignment: 9
-      pivot: {x: 0.66532373, y: 0.52159274}
+        x: 125
+        y: 1118
+        width: 419
+        height: 647
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f7ef4ae8e2f3212e0800000000000000
-      internalID: -2156591802362823041
+      spriteID: 37405d734016456c0800000000000000
+      internalID: -4155589885411654541
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mecha_running_1
+      name: mecha_action_2
       rect:
         serializedVersion: 2
-        x: 692
-        y: 921
-        width: 628
-        height: 645
-      alignment: 9
-      pivot: {x: 0.7180253, y: 0.50562054}
+        x: 652
+        y: 1135
+        width: 637
+        height: 607
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7a81fe931e9482c60800000000000000
-      internalID: 7793560386853083303
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: mecha_running_2
-      rect:
-        serializedVersion: 2
-        x: 95
-        y: 150
-        width: 611
-        height: 691
-      alignment: 9
-      pivot: {x: 0.70515615, y: 0.5450093}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 188402e643ccb6630800000000000000
-      internalID: 3921452426114123905
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: mecha_running_3
-      rect:
-        serializedVersion: 2
-        x: 871
-        y: 165
-        width: 530
-        height: 663
-      alignment: 9
-      pivot: {x: 0.65335304, y: 0.5224831}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 3f9381b9255c47c30800000000000000
-      internalID: 4356323698154158579
+      spriteID: 610372db475a72330800000000000000
+      internalID: 3686096740834291734
       vertices: []
       indices: 
       edges: []

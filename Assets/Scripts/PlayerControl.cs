@@ -8,6 +8,7 @@ public class PlayerControl : MonoBehaviour
     public bool isRunning = false;
     public bool isClimbing = false;
     public bool isRepairing = false;
+    public bool facingLeft = false;
     Animator animator;
     
     public PLAYER player = PLAYER.PLAYER1;
@@ -15,6 +16,7 @@ public class PlayerControl : MonoBehaviour
     private Rigidbody2D RB;
     private string horizontalAxis = "HorizontalP1";
     private string verticalAxis = "VerticalP1";
+    private string repair = "Player1Repair";
     
     // Start is called before the first frame update
     void Start()
@@ -26,6 +28,7 @@ public class PlayerControl : MonoBehaviour
         {
             horizontalAxis = "HorizontalP2";
             verticalAxis = "VerticalP2";
+            repair = "Player2Repair";
         }
     }
 
@@ -34,6 +37,7 @@ public class PlayerControl : MonoBehaviour
     {
         MoveCharacter();
         Animate();
+        Repair();
     }
 
     public void MoveCharacter()
@@ -43,6 +47,20 @@ public class PlayerControl : MonoBehaviour
         if (UserInputHorizontal != 0)
         {
             isRunning = true;
+
+            if (UserInputHorizontal < 0)
+            {
+                facingLeft = true;
+                GetComponent<SpriteRenderer>().flipX = true;
+            }
+            else
+            {
+                if (facingLeft)
+                {
+                    facingLeft = false;
+                    GetComponent<SpriteRenderer>().flipX = false;
+                }
+            }
         }
         else
         {
@@ -60,6 +78,7 @@ public class PlayerControl : MonoBehaviour
             UserInputVertical = 0;
         }
         transform.position = new Vector3(Time.deltaTime * Speed * UserInputHorizontal + transform.position.x, Time.deltaTime * Speed * UserInputVertical + transform.position.y, 0);
+
     }
 
     private void Animate()
@@ -67,6 +86,18 @@ public class PlayerControl : MonoBehaviour
         animator.SetBool("isRunning", isRunning);
         animator.SetBool("isClimbing", isClimbing);
         animator.SetBool("isRepairing", isRepairing);
+    }
+
+    private void Repair()
+    {
+        if (Input.GetButtonDown(repair))
+        {
+            isRepairing = true;
+        }
+        else
+        {
+            isRepairing = false;
+        }
     }
 
     public void OnTriggerStay2D(Collider2D col)
