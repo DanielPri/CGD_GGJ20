@@ -13,7 +13,13 @@ public class PowerPlantRoom : RoomComponent
     // Start is called before the first frame update
     new void Start()
     {
-        base.Start();
+        repairZone = GetComponentInChildren<RepairZone>();
+        if (transform.Find("DestrucitonFlames") != null)
+        {
+            destructionFlames = transform.Find("DestrucitonFlames").gameObject;
+        }
+        spriteRenderer = transform.Find("PowerCore").Find("DullCore").GetComponent<SpriteRenderer>();
+        Debug.Log(spriteRenderer);
         currentEnergy = 1; //this isn't working for some reason?
         InvokeRepeating("regenerateEnergy", regenCooldown, regenCooldown);
     }
