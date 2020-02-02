@@ -21,7 +21,7 @@ public class RoomComponent : MonoBehaviour
     protected float abilityTimer = 0; //Calculates the duration and the cooldown
     public float energyCost { get; protected set; } //Energy cost of the ability
 
-    void Start()
+    protected void Start()
     {
         repairZone = GetComponentInChildren<RepairZone>();
     }
