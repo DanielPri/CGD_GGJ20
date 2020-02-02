@@ -7,6 +7,11 @@ public class BridgeRoom : RoomComponent
     public bool isPiloting = false;
     public bool isEngineFunctional = true;
 
+    new void Start()
+    {
+        base.Start();
+        spriteRenderer = null; //since bridge doesnt have one
+    }
      protected override void doAction()
     {
         if (isEngineFunctional)
