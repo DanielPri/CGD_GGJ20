@@ -49,7 +49,7 @@ public class HighScoreManager : MonoBehaviour
             if(_persistent != null)
             {
                 _score = _persistent.GetPersistScore();
-                _textGameOver.text = "Score: " + _persistent.GetPersistScore();
+                _textGameOver.text = "Your score: " + _persistent.GetPersistScore();
                 Destroy(FindObjectOfType<Persistent>().gameObject);
             }
             else
@@ -75,7 +75,7 @@ public class HighScoreManager : MonoBehaviour
             newScore.name = string.Copy(_namePlayer);
             _highScoreList.Insert(0, newScore);
             _highScoreList.Sort(CompareScores);
-            if (_highScoreList.Count > 10)
+            if (_highScoreList.Count > 14)
             {
                 _highScoreList.RemoveAt(0);
             }
