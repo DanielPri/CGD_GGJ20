@@ -156,9 +156,9 @@ MonoBehaviour:
   damageState: 0
   repairSpeed: 2
   repairProgress: 0
-  _ShieldActiveTime: 1
-  _CooldownTime: 10
-  _DamagedCooldownTime: 15
+  abilityCooldown: 10
+  abilityDuration: 2
+  _DamagedCooldownModifier: 5
 --- !u!1 &6070940320470251485
 GameObject:
   m_ObjectHideFlags: 0
