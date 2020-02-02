@@ -276,12 +276,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damageState: 0
   repairSpeed: 2
-  _testTexts:
-  - {fileID: 0}
-  - {fileID: 0}
-  _ShieldActiveTime: 1
-  _CooldownTime: 10
-  _DamagedCooldownTime: 15
+  repairProgress: 0
+  abilityCooldown: 10
+  abilityDuration: 2
+  _DamagedCooldownModifier: 5
 --- !u!1 &1465905770
 GameObject:
   m_ObjectHideFlags: 0

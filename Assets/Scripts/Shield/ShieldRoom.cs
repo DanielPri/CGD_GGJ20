@@ -5,20 +5,15 @@ using UnityEngine.UI;
 
 public class ShieldRoom : RoomComponent
 {
-    [SerializeField] private float _ShieldActiveTime = 1f;
-    [SerializeField] private float _CooldownTime = 10f;
-    [SerializeField] private float _DamagedCooldownTime = 15f;
-    private float _CurrentElapsed = 0f;
+    [SerializeField] private float _DamagedCooldownModifier = 5f;
     private float _LastTime = 0f;
-    private bool _ShieldActive = false;
-    private bool _CooldownActive = false;
 
     new void Update()
     {
         // Update from RoomComponent
         base.Update();
 
-        if (_ShieldActive || _CooldownActive)
+        if (activated || onCooldown)
         {
             HandleTimeElapsed();
         }
@@ -41,22 +36,22 @@ public class ShieldRoom : RoomComponent
         // Count one second
         if(currentTime - _LastTime >= 1)
         {
-            _CurrentElapsed += 1;
+            abilityTimer += 1;
             _LastTime = currentTime;
 
             // Deactivates shield if the correct amount of seconds elapsed
-            if (_ShieldActive && _CurrentElapsed >= _ShieldActiveTime)
+            if (activated && abilityTimer >= abilityDuration)
             {
-                _ShieldActive = false;
-                _CooldownActive = true;
+                activated = false;
+                onCooldown = true;
             }
 
             // Deactivates cooldown if the correct amount of seconds elapsed based on the DAMAGE_STATE
-            if (_CooldownActive)
+            if (onCooldown)
             {
-                if ((damageState == DAMAGE_STATE.FUNCTIONAL && _CurrentElapsed >= (_CooldownTime + _ShieldActiveTime)) ||
-                        (damageState == DAMAGE_STATE.DAMAGED && _CurrentElapsed >= (_DamagedCooldownTime + _ShieldActiveTime)))
-                    _CooldownActive = false;
+                if ((damageState == DAMAGE_STATE.FUNCTIONAL && abilityTimer >= (abilityCooldown + abilityDuration)) ||
+                        (damageState == DAMAGE_STATE.DAMAGED && abilityTimer >= (abilityCooldown + _DamagedCooldownModifier + abilityDuration)))
+                    onCooldown = false;
             }
         }
     }
@@ -65,7 +60,8 @@ public class ShieldRoom : RoomComponent
     protected override void doAction()
     {
         // Activate shield and all that
-        if (!_ShieldActive && !_CooldownActive)
+        // TODO: Check energy cost and if there is enough
+        if (!activated && !onCooldown && damageState != DAMAGE_STATE.DESTROYED)
         {
             ActivateShield();
         }
@@ -74,20 +70,8 @@ public class ShieldRoom : RoomComponent
     // Starts the cooldown with the correct time
     private void ActivateShield()
     {
-        _CurrentElapsed = 0f;
-        _ShieldActive = true;
+        abilityTimer = 0;
+        activated = true;
         _LastTime = Time.time;
-    }
-
-    // Returns true if shield is active
-    public bool IsShieldActive()
-    {
-        return _ShieldActive;
-    }
-
-    // Returns true if cooldown is active
-    public bool IsOnCooldown()
-    {
-        return _CooldownActive;
     }
 }
