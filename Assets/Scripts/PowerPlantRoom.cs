@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PowerPlantRoom : MonoBehaviour
+public class PowerPlantRoom : RoomComponent
 {
     [HideInInspector] public float totalEnergy { get; private set; } = 100f;
-    [HideInInspector] public float currentEnergy;
+    [HideInInspector] public float currentEnergy; //TODO replace with Storage.energy
     [SerializeField] float regenEnergy; //Amount regenerated overtime
     [SerializeField] float regenCooldown; //Time between each regeneration
     [SerializeField] float burnedRessources; //Amount of energy gained when burning ressources (ability)
@@ -13,7 +13,6 @@ public class PowerPlantRoom : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        currentEnergy = totalEnergy;
         InvokeRepeating("regenerateEnergy", regenCooldown, regenCooldown);
     }
 
@@ -26,5 +25,16 @@ public class PowerPlantRoom : MonoBehaviour
 
     public void burnRessources() {
         currentEnergy += burnedRessources;
+    }
+
+    protected override void doAction() {
+        if(/*Storage.metal < burnedRessources &&*/ currentEnergy < totalEnergy) {
+            //Storage.metal -= burnedRessources;
+            currentEnergy += burnedRessources;
+            if (currentEnergy > totalEnergy) currentEnergy = totalEnergy;
+        }
+    }
+
+    protected override void endAction() {
     }
 }
