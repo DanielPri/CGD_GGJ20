@@ -14,6 +14,7 @@ public class RoomComponent : MonoBehaviour
     public float repairProgress = 0f;
     protected PLAYER occupyingPlayer = PLAYER.NONE;
     public GameObject destructionFlames;
+    public GameObject destructionSmoke;
 
 
     [HideInInspector] public bool activated { get; protected set; } = false; //Whether the ability is activated or not
@@ -37,6 +38,10 @@ public class RoomComponent : MonoBehaviour
         {
             destructionFlames = transform.Find("DestrucitonFlames").gameObject;
         }
+        if (transform.Find("Smoke") != null)
+        {
+            destructionSmoke = transform.Find("Smoke").gameObject;
+        }
     }
 
     protected void Update()
@@ -55,14 +60,23 @@ public class RoomComponent : MonoBehaviour
     private void handleFlames()
     {
         if (destructionFlames != null)
+        {
             if (damageState == DAMAGE_STATE.DESTROYED)
             {
                 destructionFlames.SetActive(true);
+                destructionSmoke.SetActive(true);
+            }
+            else if (damageState == DAMAGE_STATE.DAMAGED)
+            {
+                destructionSmoke.SetActive(true);
+                destructionFlames.SetActive(false);
             }
             else
             {
+                destructionSmoke.SetActive(false);
                 destructionFlames.SetActive(false);
             }
+        }
     }
 
     private void checkOccupyingPlayer()
@@ -227,7 +241,7 @@ public class RoomComponent : MonoBehaviour
 
     public void GetHit()
     {
-        if (damageState == DAMAGE_STATE.DESTROYED)
+        if (damageState != DAMAGE_STATE.DESTROYED)
         {
             damageState++;
         }

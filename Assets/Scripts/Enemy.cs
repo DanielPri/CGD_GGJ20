@@ -39,7 +39,7 @@ public class Enemy : MonoBehaviour
         }
         if (name == "water")
         {
-            //GetComponent<WaterRoom>().GetHit();
+            GetComponent<WaterStorageRoom>().GetHit();
         }
         if (name == "engine")
         {

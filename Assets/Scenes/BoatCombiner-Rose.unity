@@ -1722,6 +1722,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5812584808810851816, guid: 29f548866f8b20b4c8053cd4123165d7,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 5812584808810851816, guid: 29f548866f8b20b4c8053cd4123165d7,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.97
+      objectReference: {fileID: 0}
+    - target: {fileID: 5812584808810851816, guid: 29f548866f8b20b4c8053cd4123165d7,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.53
+      objectReference: {fileID: 0}
     - target: {fileID: 9078758501339485154, guid: 29f548866f8b20b4c8053cd4123165d7,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1927,10 +1942,10 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: fb29d9b3cba273344b71762c59c94be3, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -2026,7 +2041,7 @@ AudioSource:
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -2774,31 +2789,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: TractorBeam
       objectReference: {fileID: 0}
-    - target: {fileID: 8419969618722390885, guid: 2f95f057c4586c246aa1ac0575372823,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0.58
-      objectReference: {fileID: 0}
-    - target: {fileID: 8419969618722390885, guid: 2f95f057c4586c246aa1ac0575372823,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.44
-      objectReference: {fileID: 0}
-    - target: {fileID: 8419969618722390885, guid: 2f95f057c4586c246aa1ac0575372823,
-        type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.7612
-      objectReference: {fileID: 0}
-    - target: {fileID: 8419969618722390885, guid: 2f95f057c4586c246aa1ac0575372823,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.7612
-      objectReference: {fileID: 0}
-    - target: {fileID: 8419969618722390885, guid: 2f95f057c4586c246aa1ac0575372823,
-        type: 3}
-      propertyPath: m_LocalScale.z
-      value: 1.5224
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2f95f057c4586c246aa1ac0575372823, type: 3}
 --- !u!1001 &3640988695797310091
@@ -2808,16 +2798,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2986295162992512478, guid: 7e7c91a453cd2a14083d0da4c9034133,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -0.088
-      objectReference: {fileID: 0}
-    - target: {fileID: 2986295162992512478, guid: 7e7c91a453cd2a14083d0da4c9034133,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.619
-      objectReference: {fileID: 0}
     - target: {fileID: 3640988695962941789, guid: 7e7c91a453cd2a14083d0da4c9034133,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2877,11 +2857,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: EngineRoom
-      objectReference: {fileID: 0}
-    - target: {fileID: 7179186280328433115, guid: 7e7c91a453cd2a14083d0da4c9034133,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7e7c91a453cd2a14083d0da4c9034133, type: 3}
