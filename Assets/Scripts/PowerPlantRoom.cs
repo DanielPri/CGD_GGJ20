@@ -5,7 +5,7 @@ using UnityEngine;
 public class PowerPlantRoom : RoomComponent
 {
     [HideInInspector] public float totalEnergy { get; private set; } = 100f;
-    [HideInInspector] public float currentEnergy; //TODO replace with Storage.energy
+    [HideInInspector] public static float currentEnergy; //TODO replace with Storage.energy
     [SerializeField] float regenEnergy; //Amount regenerated overtime
     [SerializeField] float regenCooldown; //Time between each regeneration
     [SerializeField] float burnedRessources; //Amount of energy gained when burning ressources (ability)
