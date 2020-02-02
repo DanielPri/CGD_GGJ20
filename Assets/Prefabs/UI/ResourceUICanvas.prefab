@@ -612,7 +612,7 @@ GameObject:
   - component: {fileID: 7327003577157763192}
   - component: {fileID: 7327003577157763195}
   m_Layer: 5
-  m_Name: Canvas
+  m_Name: ResourceUICanvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -626,7 +626,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7327003577157763194}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 90}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.021459227, y: 0.021459227, z: 0.021459227}
   m_Children:
   - {fileID: 7327003577145627746}
