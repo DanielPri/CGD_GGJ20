@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 1842750198}
   m_Layer: 0
   m_Name: Pirate
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -80,7 +80,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 4.69, y: 7.08}
+  m_Size: {x: 4.19, y: 7.06}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -99,18 +99,18 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.23769593, y: -0.24}
+  m_Offset: {x: 0.1222986, y: -0.26938725}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.44931856, y: 0.5380491}
     oldSize: {x: 4.69, y: 7.08}
-    newSize: {x: 4.69, y: 7.08}
+    newSize: {x: 4.19, y: 7.06}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 4.69, y: 7.08}
+  m_Size: {x: 2.1512585, y: 7.08}
   m_EdgeRadius: 0
 --- !u!50 &5825248591921956699
 Rigidbody2D:
@@ -164,8 +164,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1e172674ae6a824b8e1a9c501c730b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Speed: 0
+  Speed: 3
   isRunning: 0
   isClimbing: 0
   isRepairing: 0
+  facingLeft: 0
+  isGrounded: 1
+  floorLayerMask:
+    serializedVersion: 2
+    m_Bits: 512
+  raycastLength: 0.5
   player: 0

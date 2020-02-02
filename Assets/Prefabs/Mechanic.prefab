@@ -170,5 +170,8 @@ MonoBehaviour:
   isRepairing: 0
   facingLeft: 0
   isGrounded: 1
-  snapToLadder: 0
+  floorLayerMask:
+    serializedVersion: 2
+    m_Bits: 512
+  raycastLength: 0.5
   player: 0
