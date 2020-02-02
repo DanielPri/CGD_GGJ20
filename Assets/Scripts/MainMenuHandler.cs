@@ -18,7 +18,7 @@ public class MainMenuHandler : MonoBehaviour
 
     public void LoadGameScene()
     {
-        SceneManager.LoadScene("BoatCombiner-Rose");
+        SceneManager.LoadScene("BoatCombiner-George");
     }
 
     public void LoadInstructionsScene()
