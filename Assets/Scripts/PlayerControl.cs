@@ -55,7 +55,6 @@ public class PlayerControl : MonoBehaviour
     public void MoveCharacter()
     {
         float UserInputHorizontal = Input.GetAxisRaw(horizontalAxis);
-        Debug.Log(UserInputHorizontal);
         if (UserInputHorizontal != 0)
         {
             isRunning = true;

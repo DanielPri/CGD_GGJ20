@@ -13,6 +13,8 @@ public class RoomComponent : MonoBehaviour
     [Range(0.0f, 1.0f)]
     public float repairProgress = 0f;
     protected PLAYER occupyingPlayer = PLAYER.NONE;
+    public GameObject destructionFlames;
+
 
     [HideInInspector] public bool activated { get; protected set; } = false; //Whether the ability is activated or not
     [HideInInspector] public bool onCooldown { get; protected set; } = false; //Whether the ability is on cooldown or not
@@ -24,6 +26,10 @@ public class RoomComponent : MonoBehaviour
     protected void Start()
     {
         repairZone = GetComponentInChildren<RepairZone>();
+        if (transform.Find("DestrucitonFlames") != null)
+        {
+            destructionFlames = transform.Find("DestrucitonFlames").gameObject;
+        }
     }
 
     protected void Update()
@@ -32,6 +38,20 @@ public class RoomComponent : MonoBehaviour
         checkOccupyingPlayer();
         handleInput();
         // handle room stuff like light turning on;
+        handleFlames();
+    }
+
+    private void handleFlames()
+    {
+        if (destructionFlames != null)
+            if (damageState == DAMAGE_STATE.DESTROYED)
+            {
+                destructionFlames.SetActive(true);
+            }
+            else
+            {
+                destructionFlames.SetActive(false);
+            }
     }
 
     private void checkOccupyingPlayer()

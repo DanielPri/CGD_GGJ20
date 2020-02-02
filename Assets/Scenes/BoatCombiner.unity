@@ -272,8 +272,9 @@ GameObject:
   m_Component:
   - component: {fileID: 85943704}
   - component: {fileID: 85943703}
+  - component: {fileID: 85943705}
   m_Layer: 0
-  m_Name: Fire
+  m_Name: ThrustFire
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -338,12 +339,31 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 85943702}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -7.38, y: 1.751, z: -3.4121094}
+  m_LocalPosition: {x: -7.38, y: 1.751, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &85943705
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 85943702}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 481ddad5600574646b54f8596e6a599a, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1001 &324496547
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -510,12 +530,12 @@ PrefabInstance:
     - target: {fileID: 2036196705092148012, guid: 2f210055bcfe71a4ca76bda6131cf747,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.72
+      value: -3
       objectReference: {fileID: 0}
     - target: {fileID: 2036196705092148012, guid: 2f210055bcfe71a4ca76bda6131cf747,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.11
+      value: 1.03
       objectReference: {fileID: 0}
     - target: {fileID: 2036196705092148012, guid: 2f210055bcfe71a4ca76bda6131cf747,
         type: 3}
@@ -1069,12 +1089,12 @@ PrefabInstance:
     - target: {fileID: 4116204780021399374, guid: f13928e7a37329d45a2702a314230b79,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 2.656
+      value: -1.98
       objectReference: {fileID: 0}
     - target: {fileID: 4116204780021399374, guid: f13928e7a37329d45a2702a314230b79,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.159
+      value: -1.79
       objectReference: {fileID: 0}
     - target: {fileID: 4116204780021399374, guid: f13928e7a37329d45a2702a314230b79,
         type: 3}
@@ -1946,6 +1966,31 @@ PrefabInstance:
       propertyPath: m_Name
       value: TractorBeam
       objectReference: {fileID: 0}
+    - target: {fileID: 8419969618722390885, guid: 2f95f057c4586c246aa1ac0575372823,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.58
+      objectReference: {fileID: 0}
+    - target: {fileID: 8419969618722390885, guid: 2f95f057c4586c246aa1ac0575372823,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.44
+      objectReference: {fileID: 0}
+    - target: {fileID: 8419969618722390885, guid: 2f95f057c4586c246aa1ac0575372823,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.7612
+      objectReference: {fileID: 0}
+    - target: {fileID: 8419969618722390885, guid: 2f95f057c4586c246aa1ac0575372823,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.7612
+      objectReference: {fileID: 0}
+    - target: {fileID: 8419969618722390885, guid: 2f95f057c4586c246aa1ac0575372823,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.5224
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2f95f057c4586c246aa1ac0575372823, type: 3}
 --- !u!1001 &3640988695797310091
@@ -1955,6 +2000,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2986295162992512478, guid: 7e7c91a453cd2a14083d0da4c9034133,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.088
+      objectReference: {fileID: 0}
+    - target: {fileID: 2986295162992512478, guid: 7e7c91a453cd2a14083d0da4c9034133,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.619
+      objectReference: {fileID: 0}
     - target: {fileID: 3640988695962941789, guid: 7e7c91a453cd2a14083d0da4c9034133,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2014,6 +2069,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: EngineRoom
+      objectReference: {fileID: 0}
+    - target: {fileID: 7179186280328433115, guid: 7e7c91a453cd2a14083d0da4c9034133,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7e7c91a453cd2a14083d0da4c9034133, type: 3}

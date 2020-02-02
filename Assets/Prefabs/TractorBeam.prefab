@@ -112,6 +112,7 @@ Transform:
   m_Children:
   - {fileID: 1200659828331715439}
   - {fileID: 1200659828478460890}
+  - {fileID: 8419969618722390885}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -203,3 +204,78 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 2.1870518, y: 1.0659475}
   m_EdgeRadius: 0
+--- !u!1001 &8011813082692884012
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1200659828438239164}
+    m_Modifications:
+    - target: {fileID: 2014815807254238537, guid: ceed5047ffb307f42998ebf02f5dac39,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -2.545
+      objectReference: {fileID: 0}
+    - target: {fileID: 2014815807254238537, guid: ceed5047ffb307f42998ebf02f5dac39,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -1.182
+      objectReference: {fileID: 0}
+    - target: {fileID: 2014815807254238537, guid: ceed5047ffb307f42998ebf02f5dac39,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2014815807254238537, guid: ceed5047ffb307f42998ebf02f5dac39,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2014815807254238537, guid: ceed5047ffb307f42998ebf02f5dac39,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2014815807254238537, guid: ceed5047ffb307f42998ebf02f5dac39,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2014815807254238537, guid: ceed5047ffb307f42998ebf02f5dac39,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2014815807254238537, guid: ceed5047ffb307f42998ebf02f5dac39,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2014815807254238537, guid: ceed5047ffb307f42998ebf02f5dac39,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2014815807254238537, guid: ceed5047ffb307f42998ebf02f5dac39,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2014815807254238537, guid: ceed5047ffb307f42998ebf02f5dac39,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5847629512535987532, guid: ceed5047ffb307f42998ebf02f5dac39,
+        type: 3}
+      propertyPath: m_Name
+      value: DestrucitonFlames
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: ceed5047ffb307f42998ebf02f5dac39, type: 3}
+--- !u!4 &8419969618722390885 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2014815807254238537, guid: ceed5047ffb307f42998ebf02f5dac39,
+    type: 3}
+  m_PrefabInstance: {fileID: 8011813082692884012}
+  m_PrefabAsset: {fileID: 0}
