@@ -14,6 +14,13 @@ public class RoomComponent : MonoBehaviour
     public float repairProgress = 0f;
     protected PLAYER occupyingPlayer = PLAYER.NONE;
 
+    [HideInInspector] public bool activated { get; protected set; } = false; //Whether the ability is activated or not
+    [HideInInspector] public bool onCooldown { get; protected set; } = false; //Whether the ability is on cooldown or not
+    [SerializeField] protected float abilityCooldown; //Cooldown time
+    [SerializeField] protected float abilityDuration; //How long the ability stays active
+    protected float abilityTimer = 0; //Calculates the duration and the cooldown
+    public float energyCost { get; protected set; } //Energy cost of the ability
+
     void Start()
     {
         repairZone = GetComponentInChildren<RepairZone>();
