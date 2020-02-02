@@ -29,6 +29,7 @@ public class BridgeRoom : RoomComponent
                 time = 0;
             }
         }
+        base.Update();
     }
     protected override void doAction()
     {
@@ -43,8 +44,8 @@ public class BridgeRoom : RoomComponent
         isPiloting = false;
     }
 
-    new void repair()
+    /*new void repair()
     {
         // do nothing
-    }
+    }*/
 }
