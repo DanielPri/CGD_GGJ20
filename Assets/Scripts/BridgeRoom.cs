@@ -7,12 +7,31 @@ public class BridgeRoom : RoomComponent
     public bool isPiloting = false;
     public bool isEngineFunctional = true;
 
+    float time = 0;
+
     new void Start()
     {
         base.Start();
         spriteRenderer = null; //since bridge doesnt have one
     }
-     protected override void doAction()
+
+    new void Update()
+    {
+        if (isPiloting)
+        {
+            time += Time.deltaTime;
+            if (time > 2f)
+            {
+                if (PowerPlantRoom.currentEnergy >= 2)
+                {
+                    PowerPlantRoom.currentEnergy -= 2;
+                }
+                time = 0;
+            }
+        }
+        base.Update();
+    }
+    protected override void doAction()
     {
         if (isEngineFunctional)
         {
@@ -25,8 +44,8 @@ public class BridgeRoom : RoomComponent
         isPiloting = false;
     }
 
-    new void repair()
+    /*new void repair()
     {
         // do nothing
-    }
+    }*/
 }

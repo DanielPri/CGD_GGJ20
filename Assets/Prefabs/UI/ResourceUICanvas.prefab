@@ -611,6 +611,7 @@ GameObject:
   - component: {fileID: 7327003577157763193}
   - component: {fileID: 7327003577157763192}
   - component: {fileID: 7327003577157763195}
+  - component: {fileID: -8573166784128513954}
   m_Layer: 5
   m_Name: ResourceUICanvas
   m_TagString: Untagged
@@ -698,6 +699,18 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &-8573166784128513954
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7327003577157763194}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b84000282061a5e4987335c3fa2ddf42, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7327003577188743910
 GameObject:
   m_ObjectHideFlags: 0

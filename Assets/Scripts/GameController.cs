@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GameController : MonoBehaviour
 {
@@ -20,6 +21,7 @@ public class GameController : MonoBehaviour
     [SerializeField] private Extractor_Beam _TractorRoom;
     [SerializeField] private PowerPlantRoom _PowerPlantRoom;
     [SerializeField] private Persistent _persistent;
+    [SerializeField] private Text _text;
 
     [SerializeField] AudioSource music;
     [SerializeField] AudioSource intense_music;
@@ -132,6 +134,7 @@ public class GameController : MonoBehaviour
         {
             // update score accordingly
             _Score += _ScoreAdded * _ScoreModifier;
+            _text.text = "Score: " + _Score;
             // update score UI
         }
     }

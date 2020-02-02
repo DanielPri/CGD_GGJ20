@@ -99,7 +99,6 @@ MonoBehaviour:
   mMaxSpeed: 2
   mMinScale: 0.2
   mMaxScale: 0.6
-  extractorOffset: {x: 0, y: 3, z: 0}
 --- !u!135 &132864377656619753
 SphereCollider:
   m_ObjectHideFlags: 0

@@ -105,8 +105,6 @@ MonoBehaviour:
   arrowRotationSpeed: 30
   arrowRotator: {fileID: 0}
   circle: {fileID: 0}
-  space: {fileID: 0}
-  pointsUi: {fileID: 0}
   shieldOn: {fileID: 5566936454658361144, guid: 8d880ec753caf18488d6245793eb878e,
     type: 3}
   shieldOff: {fileID: -8129705728437987189, guid: f2ffe30239a264c4bb60491b76817f27,
@@ -166,10 +164,9 @@ MonoBehaviour:
   abilityCooldown: 10
   abilityDuration: 2
   arrowRotationSpeed: 30
-  arrowRotator: {fileID: 0}
-  circle: {fileID: 0}
-  space: {fileID: 0}
-  pointsUi: {fileID: 0}
+  arrowRotator: {fileID: 7922596153703429085, guid: 8f25032086eea0e4c8583a3b39bcf770,
+    type: 3}
+  circle: {fileID: 6346306015199582858, guid: d8b308b38b8ba874492b6c1433cfd52e, type: 3}
   _DamagedCooldownModifier: 5
 --- !u!1 &6070940320470251485
 GameObject:

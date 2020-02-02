@@ -14,12 +14,4 @@ public class Storage : RoomComponent
         resources_Metal = 0;
     }
 
-    private void handleOxygenReserves()
-    {
-        if (damageState == DAMAGE_STATE.DESTROYED && resources_Metal > 0)
-        {
-            resources_Metal -= metalLeakSpeed * Time.deltaTime;
-            if (resources_Metal < 0) { resources_Metal = 0; }
-        }
-    }
 }

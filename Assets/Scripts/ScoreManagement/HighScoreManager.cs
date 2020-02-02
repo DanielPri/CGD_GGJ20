@@ -17,6 +17,9 @@ public class HighScoreManager : MonoBehaviour
     [SerializeField] private bool _isEndOfGame = false;
     private int _score = 0;
 
+    private Text _nameTable = null;
+    private Text _scoreTable = null;
+
     [Serializable] public struct scores{
         public string name;
         public int score;
@@ -49,7 +52,7 @@ public class HighScoreManager : MonoBehaviour
             if(_persistent != null)
             {
                 _score = _persistent.GetPersistScore();
-                _textGameOver.text = "Score: " + _persistent.GetPersistScore();
+                _textGameOver.text = "Your score: " + _persistent.GetPersistScore();
                 Destroy(FindObjectOfType<Persistent>().gameObject);
             }
             else
@@ -75,7 +78,7 @@ public class HighScoreManager : MonoBehaviour
             newScore.name = string.Copy(_namePlayer);
             _highScoreList.Insert(0, newScore);
             _highScoreList.Sort(CompareScores);
-            if (_highScoreList.Count > 10)
+            if (_highScoreList.Count > 14)
             {
                 _highScoreList.RemoveAt(0);
             }
@@ -87,7 +90,6 @@ public class HighScoreManager : MonoBehaviour
     public void SetNamePlayer()
     {
         _namePlayer = string.Copy(_name.text);
-        Debug.Log(_namePlayer);
     }
 
     public int CompareScores(scores s1, scores s2)
@@ -110,16 +112,24 @@ public class HighScoreManager : MonoBehaviour
         {
             name.text = "";
             score.text = "";
-            for (int i = _highScoreList.Count -1; i >= 0; i--)
-            {
-                name.text = name.text + _highScoreList[i].name.ToUpper() + "\n";
-                score.text = score.text + _highScoreList[i].score + "\n";
-            }
+            _nameTable = name;
+            _scoreTable = score;
+            StartCoroutine(AnimWriteScores());
         }
          else
         {
             name.text = "NONE!";
             score.text = "";
+        }
+    }
+
+    private IEnumerator AnimWriteScores ()
+    {
+        for (int i = _highScoreList.Count - 1; i >= 0; i--)
+        {
+            _nameTable.text = _nameTable.text + _highScoreList[i].name.ToUpper() + "\n";
+            _scoreTable.text = _scoreTable.text + _highScoreList[i].score + "\n";
+            yield return new WaitForSeconds(0.01f);
         }
     }
 

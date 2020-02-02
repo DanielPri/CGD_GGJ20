@@ -76,5 +76,6 @@ public class ShieldRoom : RoomComponent
         activated = true;
         isShielded = true;
         _LastTime = Time.time;
+        PowerPlantRoom.currentEnergy -= 10;
     }
 }
