@@ -8,11 +8,8 @@ TagManager:
   - Ladder
   - Resource_Water
   - Resource_Energy
-<<<<<<< HEAD
   - Enemy
-=======
   - Floor
->>>>>>> refs/remotes/origin/master
   layers:
   - Default
   - TransparentFX
