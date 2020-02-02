@@ -725,6 +725,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: Mechanic
       objectReference: {fileID: 0}
+    - target: {fileID: 4116204780021399372, guid: f13928e7a37329d45a2702a314230b79,
+        type: 3}
+      propertyPath: m_SpriteTilingProperty.pivot.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4116204780021399372, guid: f13928e7a37329d45a2702a314230b79,
+        type: 3}
+      propertyPath: m_SpriteTilingProperty.pivot.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4116204780021399372, guid: f13928e7a37329d45a2702a314230b79,
+        type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 1.52
+      objectReference: {fileID: 0}
+    - target: {fileID: 4116204780021399372, guid: f13928e7a37329d45a2702a314230b79,
+        type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 2.42
+      objectReference: {fileID: 0}
     - target: {fileID: 4116204780021399374, guid: f13928e7a37329d45a2702a314230b79,
         type: 3}
       propertyPath: m_LocalPosition.x
