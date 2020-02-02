@@ -6,6 +6,7 @@ using UnityEngine;
 public class RoomComponent : MonoBehaviour
 {
     public DAMAGE_STATE damageState = DAMAGE_STATE.FUNCTIONAL;
+    public static bool isShielded = false;
     public float repairSpeed = 4f;
 
     protected RepairZone repairZone;
@@ -282,9 +283,6 @@ public class RoomComponent : MonoBehaviour
 
     public void GetHit()
     {
-        if (damageState != DAMAGE_STATE.DESTROYED)
-        {
-            damageState++;
-        }
+        if (damageState != DAMAGE_STATE.DESTROYED && !isShielded) damageState++;
     }
 }
