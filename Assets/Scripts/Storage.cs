@@ -11,7 +11,7 @@ public class Storage : RoomComponent
     new void Start()
     {
         base.Start();
-        resources_Metal = 0;
+        resources_Metal = 10;
     }
 
 }

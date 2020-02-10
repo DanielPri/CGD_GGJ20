@@ -101,11 +101,11 @@ public class Resource : MonoBehaviour
             {
                 if (gameObject.tag == "Resource_Water")
                 {
-                    WaterStorageRoom.resources_Water += 1;
+                    WaterStorageRoom.resources_Water += 5;
                 }
                 if (gameObject.tag == "Resource_Metal")
                 {
-                    Storage.resources_Metal += 1;
+                    Storage.resources_Metal += 5;
                 }
 
                 gettingExtracted = false;

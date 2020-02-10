@@ -461,6 +461,31 @@ PrefabInstance:
       propertyPath: burnedRessources
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5556587080593783683, guid: 2b3d3db2bf1959e4398480007dc86bbb,
+        type: 3}
+      propertyPath: waterCost
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5556587080593783683, guid: 2b3d3db2bf1959e4398480007dc86bbb,
+        type: 3}
+      propertyPath: metalCost
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5556587080593783683, guid: 2b3d3db2bf1959e4398480007dc86bbb,
+        type: 3}
+      propertyPath: metalSlowdown
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5556587080593783683, guid: 2b3d3db2bf1959e4398480007dc86bbb,
+        type: 3}
+      propertyPath: waterSlowdown
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5556587080593783683, guid: 2b3d3db2bf1959e4398480007dc86bbb,
+        type: 3}
+      propertyPath: powerMultiplier
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2b3d3db2bf1959e4398480007dc86bbb, type: 3}
 --- !u!1 &486130599
@@ -1563,6 +1588,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1026166048851922854, guid: 80a2b3b64ed33eb48b9474e81def77f0,
+        type: 3}
+      propertyPath: waterCost
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1026166049312160422, guid: 80a2b3b64ed33eb48b9474e81def77f0,
         type: 3}
       propertyPath: m_Sprite
@@ -1589,6 +1619,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3046210, guid: d5a138cd0adef404da9c2120a376c36a, type: 3}
+      propertyPath: metalCost
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 272370418333830393, guid: d5a138cd0adef404da9c2120a376c36a,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1853,6 +1887,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 9078758501339485153, guid: 29f548866f8b20b4c8053cd4123165d7,
+        type: 3}
+      propertyPath: metalCost
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 9078758501339485154, guid: 29f548866f8b20b4c8053cd4123165d7,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2067,7 +2106,7 @@ PrefabInstance:
     - target: {fileID: 6673930900077084674, guid: 8af93e81008dd134fbb405c5535b1aec,
         type: 3}
       propertyPath: spawnDelay
-      value: 6
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8af93e81008dd134fbb405c5535b1aec, type: 3}
@@ -2964,6 +3003,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: TractorBeam
       objectReference: {fileID: 0}
+    - target: {fileID: 1200659828438239167, guid: 2f95f057c4586c246aa1ac0575372823,
+        type: 3}
+      propertyPath: metalCost
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1200659828438239167, guid: 2f95f057c4586c246aa1ac0575372823,
+        type: 3}
+      propertyPath: waterCost
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2f95f057c4586c246aa1ac0575372823, type: 3}
 --- !u!1001 &3640988695797310091
@@ -2973,6 +3022,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3640988695962941788, guid: 7e7c91a453cd2a14083d0da4c9034133,
+        type: 3}
+      propertyPath: metalCost
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3640988695962941789, guid: 7e7c91a453cd2a14083d0da4c9034133,
         type: 3}
       propertyPath: m_LocalPosition.x

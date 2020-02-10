@@ -13,7 +13,7 @@ public class WaterStorageRoom : RoomComponent
     {
         base.Start();
         animator = GetComponent<Animator>();
-        resources_Water = 0;
+        resources_Water = 10;
     }
 
     new void Update()

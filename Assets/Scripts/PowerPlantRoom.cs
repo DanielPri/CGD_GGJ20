@@ -9,6 +9,9 @@ public class PowerPlantRoom : RoomComponent
     [SerializeField] float regenEnergy; //Amount regenerated overtime
     [SerializeField] float regenCooldown; //Time between each regeneration
     [SerializeField] float burnedRessources; //Amount of energy gained when burning ressources (ability)
+    [SerializeField] float metalSlowdown = 1f;
+    [SerializeField] float waterSlowdown = 1f;
+    [SerializeField] float powerMultiplier = 10f;
 
     // Start is called before the first frame update
     new void Start()
@@ -47,8 +50,9 @@ public class PowerPlantRoom : RoomComponent
     
     protected override void doAction() {
         if(/*Storage.metal < burnedRessources &&*/ currentEnergy < totalEnergy) {
-            //Storage.metal -= burnedRessources;
-            currentEnergy += burnedRessources;
+            currentEnergy += (metalCost + waterCost) * Time.deltaTime * powerMultiplier;
+            Storage.resources_Metal -= metalCost * Time.deltaTime * metalSlowdown;
+            WaterStorageRoom.resources_Water -= waterCost * Time.deltaTime * waterSlowdown;
             if (currentEnergy > totalEnergy) currentEnergy = totalEnergy;
         }
     }

@@ -8,6 +8,8 @@ public class RoomComponent : MonoBehaviour
     public DAMAGE_STATE damageState = DAMAGE_STATE.FUNCTIONAL;
     public static bool isShielded = false;
     public float repairSpeed = 4f;
+    public float waterCost = 0f;
+    public float metalCost = 0f;
 
     protected RepairZone repairZone;
     protected bool canRepair = false;
@@ -198,7 +200,7 @@ public class RoomComponent : MonoBehaviour
 
     void setRepairStatus()
     {
-        if (damageState == DAMAGE_STATE.FUNCTIONAL)
+        if (damageState == DAMAGE_STATE.FUNCTIONAL || waterCost > WaterStorageRoom.resources_Water || metalCost > Storage.resources_Metal)
         {
             canRepair = false;
         }
@@ -261,13 +263,15 @@ public class RoomComponent : MonoBehaviour
         arrowRotator.transform.rotation = Quaternion.Euler(Vector3.zero);
         SetActiveGameUI(false);
         if (result)
-        {
+        {   
             repairProgress += repairSpeed * Time.deltaTime*10;
             if (repairProgress >= 1f)
             {
                 changeDamageState();
                 repairProgress = 0f;
             }
+            Storage.resources_Metal -= metalCost;
+            WaterStorageRoom.resources_Water -= waterCost;
         }
         else
         {
